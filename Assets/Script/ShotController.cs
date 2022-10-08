@@ -16,6 +16,18 @@ public class ShotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
+        {
+            Debug.Log("Shot Success");
+            GameObject Copy_Shot = Instantiate(Origin_Shot) as GameObject;
+            Copy_Shot.tag = "Shot";
+            Copy_Shot.transform.position = Bullet.transform.position;
+            Vector3 force;
+            force = Bullet.transform.forward * 800;
+            Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
+        }
+
+        //keyboard—p
         if(Input.GetKey(KeyCode.T))
         {
             Debug.Log("Shot Success");
