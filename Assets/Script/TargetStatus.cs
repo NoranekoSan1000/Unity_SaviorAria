@@ -7,10 +7,13 @@ public class TargetStatus : MonoBehaviour
     int Pos = 0;
     public float Height;
 
+    public AudioClip SE_HitTarget;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +24,7 @@ public class TargetStatus : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        audioSource.PlayOneShot(SE_HitTarget);
         Pos = Random.Range(0, 12);
         for (int i = 0; i < 12; i++)
         {
