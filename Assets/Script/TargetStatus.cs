@@ -5,6 +5,7 @@ using UnityEngine;
 public class TargetStatus : MonoBehaviour
 {
     int Pos = 0;
+    public bool Sniper;
     public float Height;
 
     public AudioClip SE_HitTarget;
@@ -24,11 +25,24 @@ public class TargetStatus : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        audioSource.PlayOneShot(SE_HitTarget);
-        Pos = Random.Range(0, 12);
-        for (int i = 0; i < 12; i++)
+        if(Sniper)
         {
-            if (Pos == i) this.gameObject.transform.position = new Vector3(-6+i, Height, -8);
+            audioSource.PlayOneShot(SE_HitTarget);
+            Pos = Random.Range(0, 12);
+            for (int i = 0; i < 12; i++)
+            {
+                if (Pos == i) this.gameObject.transform.position = new Vector3(-6 + i, Height, -100);
+            }
         }
+        else
+        {
+            audioSource.PlayOneShot(SE_HitTarget);
+            Pos = Random.Range(0, 12);
+            for (int i = 0; i < 12; i++)
+            {
+                if (Pos == i) this.gameObject.transform.position = new Vector3(-6 + i, Height, -8);
+            }
+        }
+        
     }
 }

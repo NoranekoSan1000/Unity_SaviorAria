@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public static int Ammo = 40;
+    public static int GunMode = 0;
+    public static int Ammo = 20;
+    public static int[] GunAmmo = new int[3] {20,68,1};
     public static bool Reloading = false;
     public static float ReloadTime = 0;
     public Text LeftAmmoText;
@@ -26,8 +28,15 @@ public class PlayerStatus : MonoBehaviour
         }
         if(ReloadTime < 0 && Reloading)
         {
-            Ammo = 40;
+            Ammo = GunAmmo[GunMode];
             Reloading = false;
+        }
+
+        if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
+        {
+            Ammo = 0;
+            if (GunMode < 2) GunMode++;
+            else GunMode = 0;
         }
     }
 }
