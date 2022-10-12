@@ -6,6 +6,7 @@ public class TargetStatus : MonoBehaviour
 {
     int Pos = 0;
     public bool Sniper;
+    public bool StartTarget;
     public float Height;
 
     public AudioClip SE_HitTarget;
@@ -25,14 +26,23 @@ public class TargetStatus : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(Sniper)
+        if(StartTarget)
+        {
+            PlayerStatus.GameStart = true;
+            PlayerStatus.Score = 0;
+            PlayerStatus.GameTime = 30;
+
+
+        }
+        else if(Sniper)
         {
             audioSource.PlayOneShot(SE_HitTarget);
             Pos = Random.Range(0, 12);
             for (int i = 0; i < 12; i++)
             {
-                if (Pos == i) this.gameObject.transform.position = new Vector3(-6 + i, Height, -100);
+                if (Pos == i) this.gameObject.transform.position = new Vector3(-6 + i, Height, -90);
             }
+            if (PlayerStatus.GameTime != 0 && PlayerStatus.GameStart) PlayerStatus.Score += 7;
         }
         else
         {
@@ -42,6 +52,8 @@ public class TargetStatus : MonoBehaviour
             {
                 if (Pos == i) this.gameObject.transform.position = new Vector3(-6 + i, Height, -8);
             }
+
+            if(PlayerStatus.GameTime != 0 && PlayerStatus.GameStart) PlayerStatus.Score += 1;
         }
         
     }
