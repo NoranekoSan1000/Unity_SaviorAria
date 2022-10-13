@@ -86,7 +86,7 @@ public class ShotController : MonoBehaviour
                 Copy_Shot.tag = "Shot";
                 Copy_Shot.transform.position = Bullet.transform.position;
                 Vector3 force;
-                force = Bullet.transform.forward * 4000;
+                force = Bullet.transform.forward * 5000;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
                 CoolTime = 1.5f;
 
