@@ -20,6 +20,6 @@ public class ShotStatus : MonoBehaviour
             DestroyTimer += Time.deltaTime;               
         }
         //5•bŒãÁ–Å
-        if (DestroyTimer > 12) Destroy(this.gameObject);
+        if (DestroyTimer > 6) Destroy(this.gameObject);
     }
 }

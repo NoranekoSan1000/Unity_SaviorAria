@@ -14,9 +14,6 @@ public class Zombie : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = gameObject.GetComponent<Animator>();
-
-        lookTarget = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        lookTarget.transform.position = new Vector3(0, 2f, 4.5f);
     }
 
     // Update is called once per frame
@@ -29,7 +26,12 @@ public class Zombie : MonoBehaviour
         Vector3 MyPos = this.gameObject.transform.position;
         Vector3 CenterPos = lookTarget.transform.position;
         float dis = Vector3.Distance(MyPos, CenterPos);
-        if(dis > 3.5f) walkEnemy();
+        if (dis > 0.5f)
+        {
+            walkEnemy();
+            anim.SetBool("IsWalking", true);
+        }
+        else anim.SetBool("IsWalking", false);
     }
     
     
@@ -41,14 +43,12 @@ public class Zombie : MonoBehaviour
             direction.y = 0;
 
             var lookRotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 0.1f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 1);
         }
     }
 
     public void walkEnemy()
-    {
-        anim.SetBool("IsWalking", true);
-        
+    { 
         transform.position += transform.forward * 1.0f * Time.deltaTime;
 
     }
