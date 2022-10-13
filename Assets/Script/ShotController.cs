@@ -44,12 +44,12 @@ public class ShotController : MonoBehaviour
             P90.SetActive(false);
             AWP.SetActive(true);
         }
-
+        if (CoolTime > 0) CoolTime -= Time.deltaTime;
 
         if (PlayerStatus.Ammo > 0)
         {
             //ハンドガン
-            if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 0)
+            if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 0)
             {
                 PlayerStatus.Ammo -= 1;
                 audioSource.PlayOneShot(SE_Shot);
@@ -63,7 +63,7 @@ public class ShotController : MonoBehaviour
             }
 
             //サブマシンガン
-            if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 1 && CoolTime <= 0)
+            if ((OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 1 && CoolTime <= 0)
             {
                 PlayerStatus.Ammo -= 1;
                 audioSource.PlayOneShot(SE_Shot);
@@ -75,10 +75,9 @@ public class ShotController : MonoBehaviour
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
                 CoolTime = 0.05f;
             }
-            if(CoolTime > 0)CoolTime -= Time.deltaTime;
 
             //スナイパー
-            if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 2 && CoolTime <= 0)
+            if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 2 && CoolTime <= 0)
             {
                 PlayerStatus.Ammo -= 1;
                 audioSource.PlayOneShot(SE_SniperShot);
@@ -91,7 +90,7 @@ public class ShotController : MonoBehaviour
                 CoolTime = 1.5f;
 
             }
-            if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger))
+            if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger) || Input.GetKeyDown(KeyCode.Z))
             {
                 if (scopemode < 4) scopemode++;
                 else scopemode = 0;

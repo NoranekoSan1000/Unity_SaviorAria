@@ -54,7 +54,7 @@ public class PlayerStatus : MonoBehaviour
             Reloading = false;
         }
 
-        if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
+        if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch) || Input.GetMouseButtonDown(1))
         {
             Ammo = 0;
             if (GunMode < 2) GunMode++;
