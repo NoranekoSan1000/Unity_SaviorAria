@@ -10,7 +10,7 @@ public class PlayerStatus : MonoBehaviour
 
     public static int GunMode = 0;
     public static int Ammo = 20;
-    public static int[] GunAmmo = new int[3] {20,68,7};
+    public static int[] GunAmmo = new int[3] { 20, 68, 7 };
     public static bool Reloading = false;
     public static float ReloadTime = 0;
     public static int Score;
@@ -18,6 +18,9 @@ public class PlayerStatus : MonoBehaviour
     public Text LeftAmmoText;
     public Text LeftTimeText;
     public Text ScoreText;
+
+    public GameObject Zombie;
+    public GameObject Spawner;
 
     // Start is called before the first frame update
     void Start()
@@ -44,21 +47,36 @@ public class PlayerStatus : MonoBehaviour
         ScoreText.text = Score + "";
 
         LeftAmmoText.text = "Ammo : " + Ammo;
-        if(ReloadTime > 0 && Reloading)
+        if (ReloadTime > 0 && Reloading)
         {
             ReloadTime -= Time.deltaTime;
         }
-        if(ReloadTime < 0 && Reloading)
+        if (ReloadTime < 0 && Reloading)
         {
             Ammo = GunAmmo[GunMode];
             Reloading = false;
         }
 
-        if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch) || Input.GetMouseButtonDown(1))
+        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch) || Input.GetMouseButtonDown(1))
         {
             Ammo = 0;
             if (GunMode < 2) GunMode++;
             else GunMode = 0;
         }
+
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
+            Copy_Zombie.transform.position = Spawner.transform.position;
+            Vector3 force;
+            force = Spawner.transform.forward * 1;
+            Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
+        }
+
     }
 }
+
+
+    
+
+

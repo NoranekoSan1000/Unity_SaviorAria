@@ -31,8 +31,6 @@ public class TargetStatus : MonoBehaviour
             PlayerStatus.GameStart = true;
             PlayerStatus.Score = 0;
             PlayerStatus.GameTime = 30;
-
-
         }
         else if(Sniper)
         {

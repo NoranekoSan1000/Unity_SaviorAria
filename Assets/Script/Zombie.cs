@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+    public static int Hp = 15;
+
     private Rigidbody rb;
     private Animator anim;  //Animator‚ğanim‚Æ‚¢‚¤•Ï”‚Å’è‹`‚·‚é
     public GameObject lookTarget;
-
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +33,18 @@ public class Zombie : MonoBehaviour
             anim.SetBool("IsWalking", true);
         }
         else anim.SetBool("IsWalking", false);
+
+        //HpŒ¸­
+        HitShot();
+        Debug.Log(Hp);
+        
+        if(Hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
-    
-    
+
+
     public void LookCenter()
     {
         if (lookTarget)
@@ -48,8 +58,22 @@ public class Zombie : MonoBehaviour
     }
 
     public void walkEnemy()
-    { 
+    {
         transform.position += transform.forward * 1.0f * Time.deltaTime;
-
     }
+
+    public void HitShot()
+    {
+        if (ZombieHit.HeadHit)
+        {
+            Hp -= 2;
+            ZombieHit.HeadHit = false;
+        }
+        if (ZombieHit.BodyHit)
+        {
+            Hp -= 1;
+            ZombieHit.BodyHit = false;
+        }
+    }
+
 }
