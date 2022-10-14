@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class ShotStatus : MonoBehaviour
 {
-    float DestroyTimer = 0;
+    public GameObject CenterEyeAnchor;
 
     // Update is called once per frame
     void Update()
     {
+        this.gameObject.transform.localEulerAngles = CenterEyeAnchor.transform.localEulerAngles;
+
         if (this.gameObject.tag == "Shot")//origin‚É‚Í‰e‹¿‚ð—^‚¦‚È‚¢
         {
-            DestroyTimer += Time.deltaTime;
+            Destroy(this.gameObject, 6.0f);
         }
-        //5•bŒãÁ–Å
-        if (DestroyTimer > 6) Destroy(this.gameObject);
+
     }
 
     void OnCollisionEnter(Collision collision)

@@ -6,11 +6,20 @@ public class ZombieHit : MonoBehaviour
 {
     bool HeadHit;
     bool BodyHit;
+    public AudioClip SE_HeadShot;
+    AudioSource audioSource;
 
     public GameObject Zomb;
+    private int ThisHp=10;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        if (ThisHp <= 0) Destroy(this.gameObject,0.5f);
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -20,13 +29,14 @@ public class ZombieHit : MonoBehaviour
             if (this.gameObject.tag == "ZombieHead" && !HeadHit)
             {
                 HeadHit = true;
-                Zomb.GetComponent<Zombie>().HitShot(3);
+                audioSource.PlayOneShot(SE_HeadShot);
+                ThisHp = Zomb.GetComponent<Zombie>().HitShot(2);
                 HeadHit = false;
             }
             if (this.gameObject.tag == "ZombieBody" && !BodyHit)
             {
                 BodyHit = true;
-                Zomb.GetComponent<Zombie>().HitShot(1);
+                ThisHp =Zomb.GetComponent<Zombie>().HitShot(1);
                 BodyHit = false;
             }
         }

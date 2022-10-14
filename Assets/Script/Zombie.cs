@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    private int Hp = 15;
+    private int Hp = 10;
 
     private Rigidbody rb;
     private Animator anim;  //Animator‚ğanim‚Æ‚¢‚¤•Ï”‚Å’è‹`‚·‚é
+
     private ZombieHit HitScript;
     private ZombieHit HitScript2;
     public GameObject lookTarget;
+    public GameObject Head;
+    public GameObject Body;
 
-    float voiceCoolTime=4;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,6 @@ public class Zombie : MonoBehaviour
     void Update()
     {
 
-
         //’†‰›‚ğŒü‚­ƒvƒƒOƒ‰ƒ€
         LookCenter();
 
@@ -34,7 +35,9 @@ public class Zombie : MonoBehaviour
 
         if (Hp <= 0)
         {
-            Destroy(this.gameObject);
+
+            anim.SetBool("IsFalling", true);      
+            Destroy(this.gameObject,2.0f);
         }
     }
 
@@ -56,7 +59,7 @@ public class Zombie : MonoBehaviour
         Vector3 MyPos = this.gameObject.transform.position;
         Vector3 CenterPos = lookTarget.transform.position;
         float dis = Vector3.Distance(MyPos, CenterPos);
-        if (dis > 3f)
+        if (dis > 2.2f)
         {
             transform.position += transform.forward * 2.5f * Time.deltaTime;
             anim.SetBool("IsWalking", true);
@@ -65,9 +68,10 @@ public class Zombie : MonoBehaviour
 
     }
 
-    public void HitShot(int Damage)
+    public int HitShot(int Damage)
     {
-        Hp -= Damage;
+        Hp -= Damage * PlayerStatus.GunDamage[PlayerStatus.GunMode];
+        return Hp;
     }
 
 }
