@@ -12,17 +12,20 @@ public class Zombie : MonoBehaviour
     private ZombieHit HitScript2;
     public GameObject lookTarget;
 
+    float voiceCoolTime=4;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = gameObject.GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         //’†‰›‚ðŒü‚­ƒvƒƒOƒ‰ƒ€
         LookCenter();
 
@@ -53,7 +56,7 @@ public class Zombie : MonoBehaviour
         Vector3 MyPos = this.gameObject.transform.position;
         Vector3 CenterPos = lookTarget.transform.position;
         float dis = Vector3.Distance(MyPos, CenterPos);
-        if (dis > 1f)
+        if (dis > 3f)
         {
             transform.position += transform.forward * 2.5f * Time.deltaTime;
             anim.SetBool("IsWalking", true);

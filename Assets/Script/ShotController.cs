@@ -57,7 +57,7 @@ public class ShotController : MonoBehaviour
                 Copy_Shot.tag = "Shot";
                 Copy_Shot.transform.position = Bullet.transform.position;
                 Vector3 force;
-                force = Bullet.transform.forward * 2500;
+                force = Bullet.transform.forward * 1500;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
 
             }
@@ -71,7 +71,7 @@ public class ShotController : MonoBehaviour
                 Copy_Shot.tag = "Shot";
                 Copy_Shot.transform.position = Bullet.transform.position;
                 Vector3 force;
-                force = Bullet.transform.forward * 2000;
+                force = Bullet.transform.forward * 1000;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
                 CoolTime = 0.05f;
             }
@@ -85,7 +85,7 @@ public class ShotController : MonoBehaviour
                 Copy_Shot.tag = "Shot";
                 Copy_Shot.transform.position = Bullet.transform.position;
                 Vector3 force;
-                force = Bullet.transform.forward * 5000;
+                force = Bullet.transform.forward * 3000;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
                 CoolTime = 1.5f;
 
