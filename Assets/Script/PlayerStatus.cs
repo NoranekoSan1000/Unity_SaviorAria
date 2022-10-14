@@ -10,8 +10,8 @@ public class PlayerStatus : MonoBehaviour
 
     public static int GunMode = 0;
     public static int Ammo = 20;
-    public static int[] GunAmmo = new int[3] { 20, 68, 7 };
-    public static int[] GunDamage = new int[3] { 2, 1, 5 };
+    public static int[] GunAmmo = new int[3] { 21, 64, 8 };
+    public static int[] GunDamage = new int[3] { 3, 1, 8 };
     public static bool Reloading = false;
     public static float ReloadTime = 0;
     public static int Score;
@@ -99,7 +99,7 @@ public class PlayerStatus : MonoBehaviour
             force = Spawner4.transform.forward * 1;
             Copy_Zombie4.GetComponent<Rigidbody>().AddForce(force);
 
-            SpawnCoolTime = 12;
+            SpawnCoolTime = 17;
         }
         SpawnCoolTime -= Time.deltaTime;
 

@@ -73,7 +73,7 @@ public class ShotController : MonoBehaviour
                 Vector3 force;
                 force = Bullet.transform.forward * 1000;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-                CoolTime = 0.05f;
+                CoolTime = 0.075f;
             }
 
             //スナイパー
@@ -87,7 +87,7 @@ public class ShotController : MonoBehaviour
                 Vector3 force;
                 force = Bullet.transform.forward * 3000;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-                CoolTime = 1.5f;
+                CoolTime = 1.25f;
 
             }
             if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger) || Input.GetKeyDown(KeyCode.Z))

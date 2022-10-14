@@ -19,7 +19,11 @@ public class ZombieHit : MonoBehaviour
 
     void Update()
     {
-        if (ThisHp <= 0) Destroy(this.gameObject,0.5f);
+        if (ThisHp <= 0)
+        {
+            Destroy(this.gameObject, 0.5f);
+            PlayerStatus.Score += 1;
+        }
     }
 
     public void OnCollisionEnter(Collision collision)

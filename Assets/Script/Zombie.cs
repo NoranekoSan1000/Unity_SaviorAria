@@ -35,9 +35,9 @@ public class Zombie : MonoBehaviour
 
         if (Hp <= 0)
         {
-
             anim.SetBool("IsFalling", true);      
             Destroy(this.gameObject,2.0f);
+
         }
     }
 
