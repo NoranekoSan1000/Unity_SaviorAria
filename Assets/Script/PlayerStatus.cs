@@ -10,32 +10,39 @@ public class PlayerStatus : MonoBehaviour
 
     public static int GunMode = 0;
     public static int Ammo = 20;
+    public static int Score;
+    public static int PlayerHP;
     public static int[] GunAmmo = new int[3] { 21, 64, 8 };
     public static int[] GunDamage = new int[3] { 3, 1, 8 };
+
     public static bool Reloading = false;
     public static float ReloadTime = 0;
-    public static int Score;
+    
 
     public Text LeftAmmoText;
     public Text LeftTimeText;
     public Text ScoreText;
+    public Text PlayerHPText;
 
     public GameObject Zombie;
     public GameObject Spawner;
     public GameObject Spawner2;
     public GameObject Spawner3;
     public GameObject Spawner4;
+    public GameObject Spawner5;
+    public GameObject Spawner6;
+    public GameObject Spawner7;
 
     float SpawnCoolTime = 3;
 
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 120;
-
+        FadeController.isFadeIn = true;
         GameStart = false;
         GameTime = 30;
         Score = 0;
+        PlayerHP = 20;
     }
 
     // Update is called once per frame
@@ -54,6 +61,7 @@ public class PlayerStatus : MonoBehaviour
         string st = GameTime.ToString("0.0");
         LeftTimeText.text = st;
         ScoreText.text = Score + "";
+        PlayerHPText.text = PlayerHP + "";
 
         LeftAmmoText.text = "Ammo : " + Ammo;
         if (ReloadTime > 0 && Reloading)
@@ -73,6 +81,11 @@ public class PlayerStatus : MonoBehaviour
             else GunMode = 0;
         }
 
+        if(PlayerHP <= 0)
+        {
+            FadeController.isFadeOut = true;
+            PlayerHPText.text = "Game Over";
+        }
         if(Input.GetKeyDown(KeyCode.M) || SpawnCoolTime <= 0)
         {
             GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
@@ -100,8 +113,10 @@ public class PlayerStatus : MonoBehaviour
             force = Spawner4.transform.forward * 1;
             Copy_Zombie4.GetComponent<Rigidbody>().AddForce(force);
 
-            SpawnCoolTime = 17;
+
+            SpawnCoolTime = 18;
         }
+
         SpawnCoolTime -= Time.deltaTime;
 
     }

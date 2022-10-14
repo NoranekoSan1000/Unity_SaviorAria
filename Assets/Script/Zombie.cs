@@ -15,6 +15,8 @@ public class Zombie : MonoBehaviour
     public GameObject Head;
     public GameObject Body;
 
+    float PlayerDamageCT=3;
+    bool thisDie = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +65,10 @@ public class Zombie : MonoBehaviour
             transform.position += transform.forward * 2.5f * Time.deltaTime;
             anim.SetBool("IsWalking", true);
         }
-        else anim.SetBool("IsWalking", false);
+        else
+        {
+            anim.SetBool("IsWalking", false);
+        }
 
     }
 
@@ -74,11 +79,15 @@ public class Zombie : MonoBehaviour
         float dis = Vector3.Distance(MyPos, CenterPos);
         if (dis <= 2.4f)
         {
-            anim.SetBool("Attack", true);
+            PlayerDamageCT -= Time.deltaTime;            
+            if(PlayerDamageCT <= 0)
+            {
+                PlayerStatus.PlayerHP -= 2;
+                anim.SetBool("Attack", true);
+                PlayerDamageCT = 3;
+            }
         }
     }
-
-    bool thisDie = false;
     public void die()
     {
         
@@ -90,7 +99,7 @@ public class Zombie : MonoBehaviour
         if (thisDie)
         {
             anim.SetBool("IsFalling", true);
-            Destroy(this.gameObject, 2.0f);
+            Destroy(this.gameObject, 1f);
         }
     }
 
