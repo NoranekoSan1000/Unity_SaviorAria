@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    public static int Hp = 15;
+    private int Hp = 15;
 
     private Rigidbody rb;
     private Animator anim;  //AnimatorÇanimÇ∆Ç¢Ç§ïœêîÇ≈íËã`Ç∑ÇÈ
+    private ZombieHit HitScript;
+    private ZombieHit HitScript2;
     public GameObject lookTarget;
 
     // Start is called before the first frame update
@@ -15,6 +17,7 @@ public class Zombie : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = gameObject.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -24,21 +27,9 @@ public class Zombie : MonoBehaviour
         LookCenter();
 
         //ï‡Ç¢ÇƒÇ≠ÇÈÉvÉçÉOÉâÉÄ
-        Vector3 MyPos = this.gameObject.transform.position;
-        Vector3 CenterPos = lookTarget.transform.position;
-        float dis = Vector3.Distance(MyPos, CenterPos);
-        if (dis > 0.5f)
-        {
-            walkEnemy();
-            anim.SetBool("IsWalking", true);
-        }
-        else anim.SetBool("IsWalking", false);
+        walkEnemy();
 
-        //Hpå∏è≠
-        HitShot();
-        Debug.Log(Hp);
-        
-        if(Hp <= 0)
+        if (Hp <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -59,21 +50,21 @@ public class Zombie : MonoBehaviour
 
     public void walkEnemy()
     {
-        transform.position += transform.forward * 1.0f * Time.deltaTime;
+        Vector3 MyPos = this.gameObject.transform.position;
+        Vector3 CenterPos = lookTarget.transform.position;
+        float dis = Vector3.Distance(MyPos, CenterPos);
+        if (dis > 1f)
+        {
+            transform.position += transform.forward * 2.5f * Time.deltaTime;
+            anim.SetBool("IsWalking", true);
+        }
+        else anim.SetBool("IsWalking", false);
+
     }
 
-    public void HitShot()
+    public void HitShot(int Damage)
     {
-        if (ZombieHit.HeadHit)
-        {
-            Hp -= 2;
-            ZombieHit.HeadHit = false;
-        }
-        if (ZombieHit.BodyHit)
-        {
-            Hp -= 1;
-            ZombieHit.BodyHit = false;
-        }
+        Hp -= Damage;
     }
 
 }

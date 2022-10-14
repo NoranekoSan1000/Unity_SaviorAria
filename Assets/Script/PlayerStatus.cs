@@ -67,6 +67,7 @@ public class PlayerStatus : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M))
         {
             GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
+            Copy_Zombie.tag = "Untagged";
             Copy_Zombie.transform.position = Spawner.transform.position;
             Vector3 force;
             force = Spawner.transform.forward * 1;
