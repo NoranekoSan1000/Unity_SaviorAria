@@ -9,6 +9,7 @@ public class PlayerStatus : MonoBehaviour
     public static float GameTime;
 
     public static int GunMode = 0;
+    public static int GamePhase = 13;
     public static int Ammo = 20;
     public static int Score;
     public static int PlayerHP;
@@ -27,19 +28,32 @@ public class PlayerStatus : MonoBehaviour
 
     public Text PlayerHPText;
 
+    public Text PhaseText;
+    float textTime = -2;
+
     public GameObject Zombie;
     public GameObject[] Spawner = new GameObject[7];
 
     float SpawnCoolTime = 3;
 
+    public AudioClip[] clips;
+    AudioSource audios;
+
     // Start is called before the first frame update
     void Start()
     {
+        audios = GetComponent<AudioSource>();
+
         FadeController.isFadeIn = true;
         GameStart = false;
         GameTime = 30;
         Score = 0;
         PlayerHP = 20;
+
+        PhaseText.text = "";
+
+        audios.clip = clips[GunMode];
+        audios.Play();
     }
 
     // Update is called once per frame
@@ -63,6 +77,31 @@ public class PlayerStatus : MonoBehaviour
 
         PlayerHPText.text = PlayerHP + "";
 
+        textTime += Time.deltaTime;
+        if (textTime > 0.08f) PhaseText.text = "-";
+        if (textTime > 0.16f) PhaseText.text = "- ";
+        if (textTime > 0.24f) PhaseText.text = "- P";
+        if (textTime > 0.32f) PhaseText.text = "- Ph";
+        if (textTime > 0.40f) PhaseText.text = "- Pha";
+        if (textTime > 0.48f) PhaseText.text = "- Phas";
+        if (textTime > 0.56f) PhaseText.text = "- Phase";
+        if (textTime > 0.64f) PhaseText.text = "- Phase ";
+        if (GamePhase < 10)
+        {
+            if (textTime > 0.72f) PhaseText.text = "- Phase " + GamePhase;
+            if (textTime > 0.80f) PhaseText.text = "- Phase " + GamePhase + " ";
+            if (textTime > 0.88f) PhaseText.text = "- Phase " + GamePhase + " -";
+        }
+        else
+        {
+            if (textTime > 0.72f) PhaseText.text = "- Phase " + GamePhase / 10;
+            if (textTime > 0.80f) PhaseText.text = "- Phase " + GamePhase;
+            if (textTime > 0.88f) PhaseText.text = "- Phase " + GamePhase + " ";
+            if (textTime > 0.96f) PhaseText.text = "- Phase " + GamePhase + " -";
+
+            if (textTime > 3f) PhaseText.text = "";
+        }
+        
         LeftAmmoText.text = "Ammo : " + Ammo;
         if (ReloadTime > 0 && Reloading)
         {
@@ -79,6 +118,9 @@ public class PlayerStatus : MonoBehaviour
             Ammo = 0;
             if (GunMode < 3) GunMode++;
             else GunMode = 0;
+
+            audios.clip = clips[GunMode];
+            audios.Play();
         }
 
         if(PlayerHP <= 0)
@@ -86,6 +128,7 @@ public class PlayerStatus : MonoBehaviour
             FadeController.isFadeOut = true;
             PlayerHPText.text = "Game Over";
         }
+
         if(Input.GetKeyDown(KeyCode.M) || SpawnCoolTime <= 0)
         {
             Vector3 force;
