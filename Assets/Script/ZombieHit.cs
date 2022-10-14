@@ -21,8 +21,7 @@ public class ZombieHit : MonoBehaviour
     {
         if (ThisHp <= 0)
         {
-            Destroy(this.gameObject, 0.5f);
-            PlayerStatus.Score += 1;
+            Destroy(this.gameObject, 0.5f);       
         }
     }
 

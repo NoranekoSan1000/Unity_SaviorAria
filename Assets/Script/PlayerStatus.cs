@@ -41,13 +41,14 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         //開始前
         if (!GameStart) Score = 0;
         //ゲーム開始
         if (GameStart && GameTime > 0) GameTime -= Time.deltaTime;
         //ゲーム終了
         if (GameTime <= 0) GameTime = 0;
-
+        */
 
 
         string st = GameTime.ToString("0.0");

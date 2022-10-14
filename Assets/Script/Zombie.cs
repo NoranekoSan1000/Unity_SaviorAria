@@ -33,12 +33,11 @@ public class Zombie : MonoBehaviour
         //歩いてくるプログラム
         walkEnemy();
 
-        if (Hp <= 0)
-        {
-            anim.SetBool("IsFalling", true);      
-            Destroy(this.gameObject,2.0f);
+        //攻撃プログラム
+        EnemAttack();
 
-        }
+        //死亡時
+        die();
     }
 
 
@@ -66,6 +65,33 @@ public class Zombie : MonoBehaviour
         }
         else anim.SetBool("IsWalking", false);
 
+    }
+
+    public void EnemAttack()
+    {
+        Vector3 MyPos = this.gameObject.transform.position;
+        Vector3 CenterPos = lookTarget.transform.position;
+        float dis = Vector3.Distance(MyPos, CenterPos);
+        if (dis <= 2.4f)
+        {
+            anim.SetBool("Attack", true);
+        }
+    }
+
+    bool thisDie = false;
+    public void die()
+    {
+        
+        if(Hp <= 0 && !thisDie)
+        {
+            PlayerStatus.Score += 1;
+            thisDie = true;
+        }
+        if (thisDie)
+        {
+            anim.SetBool("IsFalling", true);
+            Destroy(this.gameObject, 2.0f);
+        }
     }
 
     public int HitShot(int Damage)

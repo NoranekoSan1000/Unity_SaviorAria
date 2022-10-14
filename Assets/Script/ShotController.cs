@@ -87,7 +87,7 @@ public class ShotController : MonoBehaviour
                 Vector3 force;
                 force = Bullet.transform.forward * 3000;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-                CoolTime = 1.25f;
+                CoolTime = 1f;
 
             }
             if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger) || Input.GetKeyDown(KeyCode.Z))
