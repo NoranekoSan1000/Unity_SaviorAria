@@ -21,7 +21,10 @@ public class PlayerStatus : MonoBehaviour
 
     public Text LeftAmmoText;
     public Text LeftTimeText;
+
     public Text ScoreText;
+    string score_6digits;
+
     public Text PlayerHPText;
 
     public GameObject Zombie;
@@ -54,7 +57,10 @@ public class PlayerStatus : MonoBehaviour
 
         string st = GameTime.ToString("0.0");
         LeftTimeText.text = st;
-        ScoreText.text = Score + "";
+
+        score_6digits = Score.ToString("D6");
+        ScoreText.text = score_6digits + "";
+
         PlayerHPText.text = PlayerHP + "";
 
         LeftAmmoText.text = "Ammo : " + Ammo;
