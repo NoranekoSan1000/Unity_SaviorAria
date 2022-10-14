@@ -25,13 +25,7 @@ public class PlayerStatus : MonoBehaviour
     public Text PlayerHPText;
 
     public GameObject Zombie;
-    public GameObject Spawner;
-    public GameObject Spawner2;
-    public GameObject Spawner3;
-    public GameObject Spawner4;
-    public GameObject Spawner5;
-    public GameObject Spawner6;
-    public GameObject Spawner7;
+    public GameObject[] Spawner = new GameObject[7];
 
     float SpawnCoolTime = 3;
 
@@ -88,32 +82,15 @@ public class PlayerStatus : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.M) || SpawnCoolTime <= 0)
         {
-            GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
-            Copy_Zombie.tag = "Untagged";
-            Copy_Zombie.transform.position = Spawner.transform.position;
             Vector3 force;
-            force = Spawner.transform.forward * 1;
-            Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
-
-            GameObject Copy_Zombie2 = Instantiate(Zombie) as GameObject;
-            Copy_Zombie2.tag = "Untagged";
-            Copy_Zombie2.transform.position = Spawner2.transform.position;
-            force = Spawner2.transform.forward * 1;
-            Copy_Zombie2.GetComponent<Rigidbody>().AddForce(force);
-
-            GameObject Copy_Zombie3 = Instantiate(Zombie) as GameObject;
-            Copy_Zombie3.tag = "Untagged";
-            Copy_Zombie3.transform.position = Spawner3.transform.position;
-            force = Spawner3.transform.forward * 1;
-            Copy_Zombie3.GetComponent<Rigidbody>().AddForce(force);
-
-            GameObject Copy_Zombie4 = Instantiate(Zombie) as GameObject;
-            Copy_Zombie4.tag = "Untagged";
-            Copy_Zombie4.transform.position = Spawner4.transform.position;
-            force = Spawner4.transform.forward * 1;
-            Copy_Zombie4.GetComponent<Rigidbody>().AddForce(force);
-
-
+            for (int i=0;i<7;i++)
+            {
+                GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
+                Copy_Zombie.tag = "Untagged";
+                Copy_Zombie.transform.position = Spawner[i].transform.position;
+                force = Spawner[i].transform.forward * 1;
+                Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
+            }
             SpawnCoolTime = 18;
         }
 

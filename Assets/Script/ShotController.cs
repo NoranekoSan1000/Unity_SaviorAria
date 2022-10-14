@@ -15,6 +15,7 @@ public class ShotController : MonoBehaviour
 
     public AudioClip SE_Shot;
     public AudioClip SE_SniperShot;
+    public AudioClip SE_BoltAction;
     public AudioClip SE_NoAmmo;
     AudioSource audioSource;
 
@@ -117,9 +118,14 @@ public class ShotController : MonoBehaviour
                 Vector3 force;
                 force = Bullet.transform.forward * 3000;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-                CoolTime = 1.2f;
-
+                CoolTime = 5f;
             }
+            if (CoolTime <= 4.8f && CoolTime > 3.5f)
+            {
+                audioSource.PlayOneShot(SE_BoltAction);
+                CoolTime = 1.0f;
+            }
+
             if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger) || Input.GetKeyDown(KeyCode.Z))
             {
                 if (scopemode < 4) scopemode++;

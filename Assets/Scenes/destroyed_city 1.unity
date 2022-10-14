@@ -1493,11 +1493,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012830030280, guid: 6f4782715127e0841ae71924b3ec6084, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.023
+      value: 0.0093
       objectReference: {fileID: 0}
     - target: {fileID: 4000012830030280, guid: 6f4782715127e0841ae71924b3ec6084, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.235
+      value: 0.2478
       objectReference: {fileID: 0}
     - target: {fileID: 4000012830030280, guid: 6f4782715127e0841ae71924b3ec6084, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3288,13 +3288,14 @@ MonoBehaviour:
   ScoreText: {fileID: 128450676}
   PlayerHPText: {fileID: 754196453}
   Zombie: {fileID: 1862918257}
-  Spawner: {fileID: 1527143492}
-  Spawner2: {fileID: 1850073425}
-  Spawner3: {fileID: 257703904}
-  Spawner4: {fileID: 980154535}
-  Spawner5: {fileID: 1509012889}
-  Spawner6: {fileID: 402243227}
-  Spawner7: {fileID: 2056649520}
+  Spawner:
+  - {fileID: 1527143492}
+  - {fileID: 1850073425}
+  - {fileID: 257703904}
+  - {fileID: 980154535}
+  - {fileID: 1509012889}
+  - {fileID: 402243227}
+  - {fileID: 2056649520}
 --- !u!4 &505214430
 Transform:
   m_ObjectHideFlags: 0
@@ -5635,6 +5636,7 @@ MonoBehaviour:
   AWP: {fileID: 973085743}
   SE_Shot: {fileID: 8300000, guid: 13213e3406d6fee4385a210da09ac8f7, type: 3}
   SE_SniperShot: {fileID: 8300000, guid: 722ba05ce92d1724eb3d20b6b182dbdc, type: 3}
+  SE_BoltAction: {fileID: 8300000, guid: 310359dd37f9c7c488cc9f3c1e0cfaf8, type: 3}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
   bulletNUM: 0
 --- !u!65 &749773103
@@ -6900,6 +6902,7 @@ MonoBehaviour:
   AWP: {fileID: 0}
   SE_Shot: {fileID: 8300000, guid: 13213e3406d6fee4385a210da09ac8f7, type: 3}
   SE_SniperShot: {fileID: 0}
+  SE_BoltAction: {fileID: 0}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
   bulletNUM: 1
 --- !u!65 &858920105
@@ -8264,7 +8267,7 @@ Camera:
     height: 1
   near clip plane: 1
   far clip plane: 2000
-  field of view: 9.2
+  field of view: 5.1
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -10432,6 +10435,7 @@ MonoBehaviour:
   AWP: {fileID: 1738739706}
   SE_Shot: {fileID: 8300000, guid: 13213e3406d6fee4385a210da09ac8f7, type: 3}
   SE_SniperShot: {fileID: 8300000, guid: 722ba05ce92d1724eb3d20b6b182dbdc, type: 3}
+  SE_BoltAction: {fileID: 0}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
   bulletNUM: 0
 --- !u!65 &1363408309
@@ -13462,11 +13466,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: bb17bb05ddca39941ae82f6297532e62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1143
+      value: -0.0598
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: bb17bb05ddca39941ae82f6297532e62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.201
+      value: 0.188
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: bb17bb05ddca39941ae82f6297532e62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13989,7 +13993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1119094317889506, guid: e619ccef6f93dbf42adadf4d5f49f320, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4371509514332036, guid: e619ccef6f93dbf42adadf4d5f49f320, type: 3}
       propertyPath: m_RootOrder
@@ -17682,13 +17686,7 @@ MonoBehaviour:
   ScoreText: {fileID: 832070955}
   PlayerHPText: {fileID: 0}
   Zombie: {fileID: 1862918257}
-  Spawner: {fileID: 1527143492}
-  Spawner2: {fileID: 1850073425}
-  Spawner3: {fileID: 257703904}
-  Spawner4: {fileID: 980154535}
-  Spawner5: {fileID: 0}
-  Spawner6: {fileID: 0}
-  Spawner7: {fileID: 0}
+  Spawner: []
 --- !u!1001 &2145136502
 PrefabInstance:
   m_ObjectHideFlags: 0
