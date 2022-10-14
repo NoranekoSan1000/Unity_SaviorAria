@@ -10,6 +10,7 @@ public class ShotController : MonoBehaviour
 
     public GameObject PM_40;
     public GameObject P90;
+    public GameObject M4A1;
     public GameObject AWP;
 
     public AudioClip SE_Shot;
@@ -34,18 +35,28 @@ public class ShotController : MonoBehaviour
         {
             PM_40.SetActive(true);
             P90.SetActive(false);
+            M4A1.SetActive(false);
             AWP.SetActive(false);
         }
         if (PlayerStatus.GunMode == 1)
         {
             PM_40.SetActive(false);
             P90.SetActive(true);
+            M4A1.SetActive(false);
             AWP.SetActive(false);
         }
         if (PlayerStatus.GunMode == 2)
         {
             PM_40.SetActive(false);
             P90.SetActive(false);
+            M4A1.SetActive(true);
+            AWP.SetActive(false);
+        }
+        if (PlayerStatus.GunMode == 3)
+        {
+            PM_40.SetActive(false);
+            P90.SetActive(false);
+            M4A1.SetActive(false);
             AWP.SetActive(true);
         }
         if (CoolTime > 0) CoolTime -= Time.deltaTime;
@@ -80,8 +91,23 @@ public class ShotController : MonoBehaviour
                 CoolTime = 0.075f;
             }
 
+            //アサルトライフル
+            if ((OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 2 && CoolTime <= 0)
+            {
+                PlayerStatus.Ammo -= 1;
+                audioSource.PlayOneShot(SE_SniperShot);
+                GameObject Copy_Shot = Instantiate(Origin_Shot) as GameObject;
+                Copy_Shot.tag = "Shot";
+                Copy_Shot.transform.position = Bullet.transform.position;
+                Vector3 force;
+                force = Bullet.transform.forward * 1800;
+                Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
+                CoolTime = 0.12f;
+
+            }
+
             //スナイパー
-            if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 2 && CoolTime <= 0)
+            if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 3 && CoolTime <= 0)
             {
                 PlayerStatus.Ammo -= 1;
                 audioSource.PlayOneShot(SE_SniperShot);
@@ -91,7 +117,7 @@ public class ShotController : MonoBehaviour
                 Vector3 force;
                 force = Bullet.transform.forward * 3000;
                 Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-                CoolTime = 1f;
+                CoolTime = 1.2f;
 
             }
             if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger) || Input.GetKeyDown(KeyCode.Z))

@@ -12,8 +12,8 @@ public class PlayerStatus : MonoBehaviour
     public static int Ammo = 20;
     public static int Score;
     public static int PlayerHP;
-    public static int[] GunAmmo = new int[3] { 21, 64, 8 };
-    public static int[] GunDamage = new int[3] { 3, 1, 8 };
+    public static int[] GunAmmo = new int[4] { 12, 64, 21, 8 };
+    public static int[] GunDamage = new int[4] { 2, 1, 3, 8 };
 
     public static bool Reloading = false;
     public static float ReloadTime = 0;
@@ -77,7 +77,7 @@ public class PlayerStatus : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch) || Input.GetMouseButtonDown(1))
         {
             Ammo = 0;
-            if (GunMode < 2) GunMode++;
+            if (GunMode < 3) GunMode++;
             else GunMode = 0;
         }
 
