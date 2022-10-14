@@ -83,7 +83,7 @@ public class PlayerStatus : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M) || SpawnCoolTime <= 0)
         {
             Vector3 force;
-            for (int i=0;i<7;i++)
+            for (int i=0;i<5;i++)
             {
                 GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
                 Copy_Zombie.tag = "Untagged";
