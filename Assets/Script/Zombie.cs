@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    private int Hp = 10;
+    private int Hp = 15;
 
     private Rigidbody rb;
     private Animator anim;  //Animator‚ğanim‚Æ‚¢‚¤•Ï”‚Å’è‹`‚·‚é

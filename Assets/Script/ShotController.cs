@@ -8,6 +8,7 @@ public class ShotController : MonoBehaviour
     public GameObject Bullet;
     public Camera ScopeCamera;
 
+    public GameObject PM_40;
     public GameObject P90;
     public GameObject AWP;
 
@@ -31,16 +32,19 @@ public class ShotController : MonoBehaviour
     {
         if (PlayerStatus.GunMode == 0)
         {
+            PM_40.SetActive(true);
             P90.SetActive(false);
             AWP.SetActive(false);
         }
         if (PlayerStatus.GunMode == 1)
         {
+            PM_40.SetActive(false);
             P90.SetActive(true);
             AWP.SetActive(false);
         }
         if (PlayerStatus.GunMode == 2)
         {
+            PM_40.SetActive(false);
             P90.SetActive(false);
             AWP.SetActive(true);
         }
