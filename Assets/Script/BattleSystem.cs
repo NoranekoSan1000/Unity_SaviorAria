@@ -8,6 +8,7 @@ public class BattleSystem : MonoBehaviour
     AudioSource audios;
 
     public GameObject Zombie;
+    public GameObject Ghoul;
     public GameObject[] Spawner = new GameObject[7];
     float SpawnCoolTime = 3;
 
