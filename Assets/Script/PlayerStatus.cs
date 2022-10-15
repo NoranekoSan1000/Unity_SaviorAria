@@ -31,19 +31,9 @@ public class PlayerStatus : MonoBehaviour
     public Text PhaseText;
     float textTime = -2;
 
-    public GameObject Zombie;
-    public GameObject[] Spawner = new GameObject[7];
-
-    float SpawnCoolTime = 3;
-
-    public AudioClip[] clips;
-    AudioSource audios;
-
     // Start is called before the first frame update
     void Start()
     {
-        audios = GetComponent<AudioSource>();
-
         FadeController.isFadeIn = true;
         GameStart = false;
         GameTime = 30;
@@ -51,24 +41,11 @@ public class PlayerStatus : MonoBehaviour
         PlayerHP = 20;
 
         PhaseText.text = "";
-
-        audios.clip = clips[GunMode];
-        audios.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        //開始前
-        if (!GameStart) Score = 0;
-        //ゲーム開始
-        if (GameStart && GameTime > 0) GameTime -= Time.deltaTime;
-        //ゲーム終了
-        if (GameTime <= 0) GameTime = 0;
-        */
-
-
         string st = GameTime.ToString("0.0");
         LeftTimeText.text = st;
 
@@ -118,9 +95,6 @@ public class PlayerStatus : MonoBehaviour
             Ammo = 0;
             if (GunMode < 3) GunMode++;
             else GunMode = 0;
-
-            audios.clip = clips[GunMode];
-            audios.Play();
         }
 
         if(PlayerHP <= 0)
@@ -128,22 +102,6 @@ public class PlayerStatus : MonoBehaviour
             FadeController.isFadeOut = true;
             PlayerHPText.text = "Game Over";
         }
-
-        if(Input.GetKeyDown(KeyCode.M) || SpawnCoolTime <= 0)
-        {
-            Vector3 force;
-            for (int i=0;i<5;i++)
-            {
-                GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
-                Copy_Zombie.tag = "Untagged";
-                Copy_Zombie.transform.position = Spawner[i].transform.position;
-                force = Spawner[i].transform.forward * 1;
-                Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
-            }
-            SpawnCoolTime = 18;
-        }
-
-        SpawnCoolTime -= Time.deltaTime;
 
     }
 }
