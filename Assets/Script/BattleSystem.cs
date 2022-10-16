@@ -15,7 +15,7 @@ public class BattleSystem : MonoBehaviour
     public bool GameChanger;//phaseêÿÇËë÷ÇÌÇËÇÃÉ^ÉCÉ~ÉìÉO
     int spawnCount = 0;//ìGèoåªÉ^ÉCÉ~ÉìÉO
     int PhaseBGM=0;
-    int EnemyAmount;
+    public static int EnemyAmount = 0;
 
     Vector3 force;
 
@@ -35,25 +35,28 @@ public class BattleSystem : MonoBehaviour
         SpawnCoolTime -= Time.deltaTime;
 
         if (PlayerStatus.GamePhase == 1) Phase1();
-
+        if (PlayerStatus.GamePhase == 2) Phase2();
+        if (PlayerStatus.GamePhase == 3) Phase3();
+        if (PlayerStatus.GamePhase == 4) Phase4();
 
         if (GameChanger)
         {
             PlayerStatus.GamePhase += 1;
-            PlayerStatus.textTime = 0;
             if (PlayerStatus.GamePhase == 5 || PlayerStatus.GamePhase == 9 || PlayerStatus.GamePhase == 13)
             {
                 PhaseBGM += 1;
                 audios.clip = BGM[PhaseBGM];
                 audios.Play();
             }
+            PlayerStatus.textTime = -1;
+            spawnCount = 0;
+            SpawnCoolTime = 5;
             GameChanger = false;
         }
     }
 
     void Phase1()
     {
-        Debug.Log(spawnCount);
         if (spawnCount == 0 && SpawnCoolTime <= 0)
         {
             EnemSpawn(0, 1);
@@ -78,6 +81,107 @@ public class BattleSystem : MonoBehaviour
             spawnCount += 1;
             SpawnCoolTime = 2;
         }
+        //ëSÇƒÇÃìGéÄñSå„
+        if(spawnCount == 4 && SpawnCoolTime <= 0 && EnemyAmount == 0)
+        {
+            GameChanger = true;
+        }
+    }
+    void Phase2()
+    {
+        if (spawnCount == 0 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 1);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 1 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 4);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 2 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 7);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 3 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 10);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        //ëSÇƒÇÃìGéÄñSå„
+        if (spawnCount == 4 && SpawnCoolTime <= 0 && EnemyAmount == 0)
+        {
+            GameChanger = true;
+        }
+    }
+    void Phase3()
+    {
+        if (spawnCount == 0 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 1);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 1 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 4);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 2 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 7);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 3 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 10);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        //ëSÇƒÇÃìGéÄñSå„
+        if (spawnCount == 4 && SpawnCoolTime <= 0 && EnemyAmount == 0)
+        {
+            GameChanger = true;
+        }
+    }
+    void Phase4()
+    {
+        if (spawnCount == 0 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(1, 1);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 1 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(1, 4);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 2 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(1, 7);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 3 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(1, 10);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
+        }
+        //ëSÇƒÇÃìGéÄñSå„
+        if (spawnCount == 4 && SpawnCoolTime <= 0 && EnemyAmount == 0)
+        {
+            GameChanger = true;
+        }
     }
 
     public void EnemSpawn(int id, int i)
@@ -89,6 +193,7 @@ public class BattleSystem : MonoBehaviour
             Copy_Zombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
             Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
+            EnemyAmount++;
         }
         if (id == 1)//ÉOÅ[Éãè¢ä´
         {
@@ -97,6 +202,7 @@ public class BattleSystem : MonoBehaviour
             Copy_Zombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
             Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
+            EnemyAmount++;
         }
     }
 

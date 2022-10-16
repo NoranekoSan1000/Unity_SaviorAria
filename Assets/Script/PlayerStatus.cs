@@ -85,6 +85,7 @@ public class PlayerStatus : MonoBehaviour
 
     char[] phaseChar = new char[7] {' ', 'P', 'h', 'a', 's', 'e', ' ' };
     char[] phaseChar2 = new char[14] { ' ', 'F', 'i', 'n', 'a', 'l', ' ', 'P', 'h', 'a', 's', 'e', ' ', '-' };
+
     void DispPhaseText()
     {
         if (textTime < 5f) textTime += Time.deltaTime;

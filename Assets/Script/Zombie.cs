@@ -98,6 +98,7 @@ public class Zombie : MonoBehaviour
         if(Hp <= 0 && !thisDie)
         {
             PlayerStatus.Score += EnemScore;
+            BattleSystem.EnemyAmount -= 1;
             thisDie = true;
         }
         if (thisDie)
