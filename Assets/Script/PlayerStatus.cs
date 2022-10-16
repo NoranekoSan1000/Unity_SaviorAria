@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerStatus : MonoBehaviour
 {
     public static bool GameStart;
-    public static float GameTime;
+   // public static float GameTime;
 
     public static int GunMode = 0;
     public static int GamePhase = 1;
@@ -36,7 +36,7 @@ public class PlayerStatus : MonoBehaviour
     {
         FadeController.isFadeIn = true;
         GameStart = false;
-        GameTime = 30;
+        //GameTime = 30;
         Score = 0;
         PlayerHP = 20;
 
@@ -46,8 +46,8 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string st = GameTime.ToString("0.0");
-        LeftTimeText.text = st;
+       // string st = GameTime.ToString("0.0");
+        //LeftTimeText.text = st;
 
         score_6digits = Score.ToString("D6");
         ScoreText.text = score_6digits + "";
@@ -57,7 +57,7 @@ public class PlayerStatus : MonoBehaviour
         //Phase•\Ž¦
         DispPhaseText();
         
-        LeftAmmoText.text = "Ammo : " + Ammo;
+        LeftAmmoText.text =": "+ Ammo;
         if (ReloadTime > 0 && Reloading)
         {
             ReloadTime -= Time.deltaTime;

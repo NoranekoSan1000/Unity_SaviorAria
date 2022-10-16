@@ -30,7 +30,7 @@ public class TargetStatus : MonoBehaviour
         {
             PlayerStatus.GameStart = true;
             PlayerStatus.Score = 0;
-            PlayerStatus.GameTime = 30;
+            //PlayerStatus.GameTime = 30;
         }
         else if(Sniper)
         {
@@ -40,7 +40,7 @@ public class TargetStatus : MonoBehaviour
             {
                 if (Pos == i) this.gameObject.transform.position = new Vector3(-6 + i, Height, -90);
             }
-            if (PlayerStatus.GameTime != 0 && PlayerStatus.GameStart) PlayerStatus.Score += 7;
+            //if (PlayerStatus.GameTime != 0 && PlayerStatus.GameStart) PlayerStatus.Score += 7;
         }
         else
         {
@@ -51,7 +51,7 @@ public class TargetStatus : MonoBehaviour
                 if (Pos == i) this.gameObject.transform.position = new Vector3(-6 + i, Height, -8);
             }
 
-            if(PlayerStatus.GameTime != 0 && PlayerStatus.GameStart) PlayerStatus.Score += 1;
+            //if(PlayerStatus.GameTime != 0 && PlayerStatus.GameStart) PlayerStatus.Score += 1;
         }
         
     }
