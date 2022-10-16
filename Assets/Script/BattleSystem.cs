@@ -35,7 +35,7 @@ public class BattleSystem : MonoBehaviour
         {
             PlayerStatus.GamePhase += 1;
             PlayerStatus.textTime = 0;
-            if (PlayerStatus.GamePhase == 4 || PlayerStatus.GamePhase == 8 || PlayerStatus.GamePhase == 12)
+            if (PlayerStatus.GamePhase == 5 || PlayerStatus.GamePhase == 9 || PlayerStatus.GamePhase == 13)
             {
                 PhaseBGM += 1;
                 audios.clip = BGM[PhaseBGM];

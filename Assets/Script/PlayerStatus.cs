@@ -54,30 +54,8 @@ public class PlayerStatus : MonoBehaviour
 
         PlayerHPText.text = PlayerHP + "";
 
-        if (textTime < 4f) textTime += Time.deltaTime;
-        if (textTime > 0.08f) PhaseText.text = "-";
-        if (textTime > 0.16f) PhaseText.text = "- ";
-        if (textTime > 0.24f) PhaseText.text = "- P";
-        if (textTime > 0.32f) PhaseText.text = "- Ph";
-        if (textTime > 0.40f) PhaseText.text = "- Pha";
-        if (textTime > 0.48f) PhaseText.text = "- Phas";
-        if (textTime > 0.56f) PhaseText.text = "- Phase";
-        if (textTime > 0.64f) PhaseText.text = "- Phase ";
-        if (GamePhase < 10)
-        {
-            if (textTime > 0.72f) PhaseText.text = "- Phase " + GamePhase;
-            if (textTime > 0.80f) PhaseText.text = "- Phase " + GamePhase + " ";
-            if (textTime > 0.88f) PhaseText.text = "- Phase " + GamePhase + " -";
-            if (textTime > 3f) PhaseText.text = "";
-        }
-        else
-        {
-            if (textTime > 0.72f) PhaseText.text = "- Phase " + GamePhase / 10;
-            if (textTime > 0.80f) PhaseText.text = "- Phase " + GamePhase;
-            if (textTime > 0.88f) PhaseText.text = "- Phase " + GamePhase + " ";
-            if (textTime > 0.96f) PhaseText.text = "- Phase " + GamePhase + " -";
-            if (textTime > 3f) PhaseText.text = "";
-        }
+        //Phase•\Ž¦
+        DispPhaseText();
         
         LeftAmmoText.text = "Ammo : " + Ammo;
         if (ReloadTime > 0 && Reloading)
@@ -101,6 +79,58 @@ public class PlayerStatus : MonoBehaviour
         {
             FadeController.isFadeOut = true;
             PlayerHPText.text = "Game Over";
+        }
+
+    }
+
+    void DispPhaseText()
+    {
+        if (textTime < 5f) textTime += Time.deltaTime;
+
+        if(GamePhase != 16)
+        {
+            if (textTime > 0.08f) PhaseText.text = "-";
+            if (textTime > 0.16f) PhaseText.text = "- ";
+            if (textTime > 0.24f) PhaseText.text = "- P";
+            if (textTime > 0.32f) PhaseText.text = "- Ph";
+            if (textTime > 0.40f) PhaseText.text = "- Pha";
+            if (textTime > 0.48f) PhaseText.text = "- Phas";
+            if (textTime > 0.56f) PhaseText.text = "- Phase";
+            if (textTime > 0.64f) PhaseText.text = "- Phase ";
+            if (GamePhase < 10)
+            {
+                if (textTime > 0.72f) PhaseText.text = "- Phase " + GamePhase;
+                if (textTime > 0.80f) PhaseText.text = "- Phase " + GamePhase + " ";
+                if (textTime > 0.88f) PhaseText.text = "- Phase " + GamePhase + " -";
+                if (textTime > 3f) PhaseText.text = "";
+            }
+            else
+            {
+                if (textTime > 0.72f) PhaseText.text = "- Phase " + GamePhase / 10;
+                if (textTime > 0.80f) PhaseText.text = "- Phase " + GamePhase;
+                if (textTime > 0.88f) PhaseText.text = "- Phase " + GamePhase + " ";
+                if (textTime > 0.96f) PhaseText.text = "- Phase " + GamePhase + " -";
+                if (textTime > 3f) PhaseText.text = "";
+            }
+        }
+        else
+        {
+            if (textTime > 0.08f) PhaseText.text = "-";
+            if (textTime > 0.16f) PhaseText.text = "- ";
+            if (textTime > 0.24f) PhaseText.text = "- F";
+            if (textTime > 0.32f) PhaseText.text = "- Fi";
+            if (textTime > 0.40f) PhaseText.text = "- Fin";
+            if (textTime > 0.48f) PhaseText.text = "- Fina";
+            if (textTime > 0.56f) PhaseText.text = "- Final";
+            if (textTime > 0.64f) PhaseText.text = "- Final ";
+            if (textTime > 0.72f) PhaseText.text = "- Final P";
+            if (textTime > 0.80f) PhaseText.text = "- Final Ph";
+            if (textTime > 0.88f) PhaseText.text = "- Final Pha";
+            if (textTime > 0.96f) PhaseText.text = "- Final Phas";
+            if (textTime > 1.04f) PhaseText.text = "- Final Phase";
+            if (textTime > 1.12f) PhaseText.text = "- Final Phase ";
+            if (textTime > 1.20f) PhaseText.text = "- Final Phase -";
+            if (textTime > 3f) PhaseText.text = "";
         }
 
     }
