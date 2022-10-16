@@ -5,6 +5,8 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {
     public int Hp;
+    public int ATK;
+    public float MoveSpeed;
 
     private Rigidbody rb;
     private Animator anim;  //Animator‚ðanim‚Æ‚¢‚¤•Ï”‚Å’è‹`‚·‚é
@@ -62,7 +64,7 @@ public class Zombie : MonoBehaviour
         float dis = Vector3.Distance(MyPos, CenterPos);
         if (dis > 2.4f)
         {
-            transform.position += transform.forward * 2.5f * Time.deltaTime;
+            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
             anim.SetBool("IsWalking", true);
         }
         else
@@ -82,7 +84,7 @@ public class Zombie : MonoBehaviour
             PlayerDamageCT -= Time.deltaTime;            
             if(PlayerDamageCT <= 0)
             {
-                PlayerStatus.PlayerHP -= 2;
+                PlayerStatus.PlayerHP -= ATK;
                 anim.SetBool("Attack", true);
                 PlayerDamageCT = 3;
             }

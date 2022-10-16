@@ -12,6 +12,11 @@ public class BattleSystem : MonoBehaviour
     public GameObject[] Spawner = new GameObject[7];
     float SpawnCoolTime = 3;
 
+    public bool GameChanger;
+    int PhaseBGM=0;
+
+    Vector3 force;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,19 +24,32 @@ public class BattleSystem : MonoBehaviour
         audios = GetComponent<AudioSource>();
         audios.clip = BGM[PlayerStatus.GunMode];
         audios.Play();
+
+        Phase1();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(GameChanger)
+        {
+            PlayerStatus.GamePhase += 1;
+            PlayerStatus.textTime = 0;
+            if (PlayerStatus.GamePhase == 4 || PlayerStatus.GamePhase == 8 || PlayerStatus.GamePhase == 12)
+            {
+                PhaseBGM += 1;
+                audios.clip = BGM[PhaseBGM];
+                audios.Play();
+            }
+            GameChanger = false;
+        }
+    }
 
-        /*audios.clip = BGM[PlayerStatus.GunMode];
-        audios.Play();*/
-
+    void Phase1()
+    {
         if (SpawnCoolTime <= 0)
         {
-            Vector3 force;
-            for (int i = 0; i < 12; i+=3)
+            for (int i = 0; i < 12; i += 3)
             {
                 GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
                 Copy_Zombie.tag = "Untagged";
@@ -42,6 +60,6 @@ public class BattleSystem : MonoBehaviour
             SpawnCoolTime = 18;
         }
         SpawnCoolTime -= Time.deltaTime;
-
     }
+
 }

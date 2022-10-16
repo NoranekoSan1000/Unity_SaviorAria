@@ -9,12 +9,12 @@ public class PlayerStatus : MonoBehaviour
     public static float GameTime;
 
     public static int GunMode = 0;
-    public static int GamePhase = 13;
+    public static int GamePhase = 1;
     public static int Ammo = 20;
     public static int Score;
     public static int PlayerHP;
-    public static int[] GunAmmo = new int[4] { 12, 64, 21, 8 };
-    public static int[] GunDamage = new int[4] { 2, 1, 3, 8 };
+    public static int[] GunAmmo = new int[4] { 16, 45, 22, 7 };
+    public static int[] GunDamage = new int[4] { 3, 2, 4, 15 };
 
     public static bool Reloading = false;
     public static float ReloadTime = 0;
@@ -29,7 +29,7 @@ public class PlayerStatus : MonoBehaviour
     public Text PlayerHPText;
 
     public Text PhaseText;
-    float textTime = -2;
+    public static float textTime = -2;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,7 @@ public class PlayerStatus : MonoBehaviour
 
         PlayerHPText.text = PlayerHP + "";
 
-        textTime += Time.deltaTime;
+        if (textTime < 4f) textTime += Time.deltaTime;
         if (textTime > 0.08f) PhaseText.text = "-";
         if (textTime > 0.16f) PhaseText.text = "- ";
         if (textTime > 0.24f) PhaseText.text = "- P";
@@ -68,6 +68,7 @@ public class PlayerStatus : MonoBehaviour
             if (textTime > 0.72f) PhaseText.text = "- Phase " + GamePhase;
             if (textTime > 0.80f) PhaseText.text = "- Phase " + GamePhase + " ";
             if (textTime > 0.88f) PhaseText.text = "- Phase " + GamePhase + " -";
+            if (textTime > 3f) PhaseText.text = "";
         }
         else
         {
@@ -75,7 +76,6 @@ public class PlayerStatus : MonoBehaviour
             if (textTime > 0.80f) PhaseText.text = "- Phase " + GamePhase;
             if (textTime > 0.88f) PhaseText.text = "- Phase " + GamePhase + " ";
             if (textTime > 0.96f) PhaseText.text = "- Phase " + GamePhase + " -";
-
             if (textTime > 3f) PhaseText.text = "";
         }
         
