@@ -19,8 +19,9 @@ public class ShotController : MonoBehaviour
     public AudioClip SE_NoAmmo;
     AudioSource audioSource;
 
-    public int bulletNUM;
     float CoolTime=0;
+
+    float[] Focus = new float[5] { 60.5f, 20.5f, 5.5f, 1.5f, 0.7f };
     int scopemode = 0;
 
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class ShotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //武器スキン切り替え
         if (PlayerStatus.GunMode == 0) SkinActive(true,false,false,false);
         if (PlayerStatus.GunMode == 1) SkinActive(false,true,false,false);
         if (PlayerStatus.GunMode == 2) SkinActive(false,false,true,false);
@@ -39,31 +41,31 @@ public class ShotController : MonoBehaviour
 
         if (CoolTime > 0) CoolTime -= Time.deltaTime;
 
-        if (PlayerStatus.Ammo > 0)
+        if (PlayerStatus.Ammo > 0 && !PlayerStatus.Reloading)
         {
             //ハンドガン
-            if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 0)
+            if (PlayerStatus.GunMode == 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 SelectShot(1500, 0);
             }
 
             //サブマシンガン
-            if ((OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 1 && CoolTime <= 0)
+            if (PlayerStatus.GunMode == 1 && CoolTime <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 SelectShot(1000, 0.075f);
             }
 
             //アサルトライフル
-            if ((OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 2 && CoolTime <= 0)
+            if ( PlayerStatus.GunMode == 2 && CoolTime <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 SelectShot(1800, 0.12f);
             }
 
             //スナイパー
-            if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 3 && CoolTime <= 0)
+            if (PlayerStatus.GunMode == 3 && CoolTime <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_SniperShot);
                 SelectShot(3000, 5f);
@@ -83,14 +85,11 @@ public class ShotController : MonoBehaviour
                 else scopemode = 0;
             }
 
-            float[] Focus = new float[5] { 60.5f, 20.5f, 5.5f, 1.5f, 0.7f };
             ScopeCamera.fieldOfView = Focus[scopemode];
         }
-        else
-        {
-           if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) && !PlayerStatus.Reloading)
-           audioSource.PlayOneShot(SE_NoAmmo);
-        }
+        //弾切れ
+        if(PlayerStatus.Ammo <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger)|| Input.GetMouseButtonDown(0)) && !PlayerStatus.Reloading)
+            audioSource.PlayOneShot(SE_NoAmmo);
         
     }
 

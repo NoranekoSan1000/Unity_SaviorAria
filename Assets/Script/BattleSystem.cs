@@ -15,6 +15,7 @@ public class BattleSystem : MonoBehaviour
     public bool GameChanger;//phase切り替わりのタイミング
     int spawnCount = 0;//敵出現タイミング
     int PhaseBGM=0;
+    int EnemyAmount;
 
     Vector3 force;
 
@@ -36,7 +37,6 @@ public class BattleSystem : MonoBehaviour
         if (PlayerStatus.GamePhase == 1) Phase1();
 
 
-
         if (GameChanger)
         {
             PlayerStatus.GamePhase += 1;
@@ -56,21 +56,27 @@ public class BattleSystem : MonoBehaviour
         Debug.Log(spawnCount);
         if (spawnCount == 0 && SpawnCoolTime <= 0)
         {
-            for (int i = 0; i < 12; i += 3) EnemSpawn(0, i);
+            EnemSpawn(0, 1);
             spawnCount += 1;
-            SpawnCoolTime = 10;
+            SpawnCoolTime = 2;
         }
         if (spawnCount == 1 && SpawnCoolTime <= 0)
         {
-            for (int i = 0; i < 12; i += 3) EnemSpawn(1, i);
+            EnemSpawn(0, 4);
             spawnCount += 1;
-            SpawnCoolTime = 5;
+            SpawnCoolTime = 2;
         }
         if (spawnCount == 2 && SpawnCoolTime <= 0)
         {
-            for (int i = 0; i < 12; i += 3) EnemSpawn(0, i);
+            EnemSpawn(0, 7);
             spawnCount += 1;
-            SpawnCoolTime = 10;
+            SpawnCoolTime = 2;
+        }
+        if (spawnCount == 3 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(0, 10);
+            spawnCount += 1;
+            SpawnCoolTime = 2;
         }
     }
 

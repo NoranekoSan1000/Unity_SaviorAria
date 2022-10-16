@@ -15,7 +15,6 @@ public class ShotStatus : MonoBehaviour
         {
             Destroy(this.gameObject, 6.0f);
         }
-
     }
 
     void OnCollisionEnter(Collision collision)

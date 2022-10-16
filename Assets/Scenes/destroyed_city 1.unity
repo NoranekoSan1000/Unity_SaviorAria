@@ -5614,7 +5614,6 @@ MonoBehaviour:
   SE_SniperShot: {fileID: 8300000, guid: 722ba05ce92d1724eb3d20b6b182dbdc, type: 3}
   SE_BoltAction: {fileID: 8300000, guid: 310359dd37f9c7c488cc9f3c1e0cfaf8, type: 3}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
-  bulletNUM: 0
 --- !u!65 &749773103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6897,7 +6896,6 @@ MonoBehaviour:
   SE_SniperShot: {fileID: 0}
   SE_BoltAction: {fileID: 0}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
-  bulletNUM: 1
 --- !u!65 &858920105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10678,7 +10676,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.25, z: 0.25}
@@ -13599,7 +13597,6 @@ MonoBehaviour:
   SE_SniperShot: {fileID: 8300000, guid: 722ba05ce92d1724eb3d20b6b182dbdc, type: 3}
   SE_BoltAction: {fileID: 8300000, guid: 310359dd37f9c7c488cc9f3c1e0cfaf8, type: 3}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
-  bulletNUM: 0
 --- !u!65 &1570131647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16195,6 +16192,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
       propertyPath: m_LocalScale.x
       value: 1500
@@ -18029,10 +18030,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25
+  m_Radius: 0.2
   m_Height: 0.5
   m_Direction: 1
-  m_Center: {x: 0, y: 2.5, z: 0.8}
+  m_Center: {x: 0, y: 2.45, z: 0.75}
 --- !u!4 &2121167238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 19e3bec5d2084834e86823c680ab9eb1,
