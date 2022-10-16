@@ -12,7 +12,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject[] Spawner = new GameObject[7];
     float SpawnCoolTime = 3;
 
-    public bool GameChanger;
+    public bool GameChanger;//phase切り替わりのタイミング
+    int spawnCount = 0;//敵出現タイミング
     int PhaseBGM=0;
 
     Vector3 force;
@@ -23,15 +24,20 @@ public class BattleSystem : MonoBehaviour
         //BGM
         audios = GetComponent<AudioSource>();
         audios.clip = BGM[PlayerStatus.GunMode];
-        audios.Play();
-
-        Phase1();
+        audios.Play();    
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameChanger)
+
+        SpawnCoolTime -= Time.deltaTime;
+
+        if (PlayerStatus.GamePhase == 1) Phase1();
+
+
+
+        if (GameChanger)
         {
             PlayerStatus.GamePhase += 1;
             PlayerStatus.textTime = 0;
@@ -47,19 +53,45 @@ public class BattleSystem : MonoBehaviour
 
     void Phase1()
     {
-        if (SpawnCoolTime <= 0)
+        Debug.Log(spawnCount);
+        if (spawnCount == 0 && SpawnCoolTime <= 0)
         {
-            for (int i = 0; i < 12; i += 3)
-            {
-                GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
-                Copy_Zombie.tag = "Untagged";
-                Copy_Zombie.transform.position = Spawner[i].transform.position;
-                force = Spawner[i].transform.forward * 1;
-                Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
-            }
-            SpawnCoolTime = 18;
+            for (int i = 0; i < 12; i += 3) EnemSpawn(0, i);
+            spawnCount += 1;
+            SpawnCoolTime = 10;
         }
-        SpawnCoolTime -= Time.deltaTime;
+        if (spawnCount == 1 && SpawnCoolTime <= 0)
+        {
+            for (int i = 0; i < 12; i += 3) EnemSpawn(1, i);
+            spawnCount += 1;
+            SpawnCoolTime = 5;
+        }
+        if (spawnCount == 2 && SpawnCoolTime <= 0)
+        {
+            for (int i = 0; i < 12; i += 3) EnemSpawn(0, i);
+            spawnCount += 1;
+            SpawnCoolTime = 10;
+        }
+    }
+
+    public void EnemSpawn(int id, int i)
+    {
+        if (id == 0)//ゾンビ召喚
+        {
+            GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
+            Copy_Zombie.tag = "Untagged";
+            Copy_Zombie.transform.position = Spawner[i].transform.position;
+            force = Spawner[i].transform.forward * 1;
+            Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
+        }
+        if (id == 1)//グール召喚
+        {
+            GameObject Copy_Zombie = Instantiate(Ghoul) as GameObject;
+            Copy_Zombie.tag = "Untagged";
+            Copy_Zombie.transform.position = Spawner[i].transform.position;
+            force = Spawner[i].transform.forward * 1;
+            Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
+        }
     }
 
 }

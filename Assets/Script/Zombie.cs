@@ -6,6 +6,7 @@ public class Zombie : MonoBehaviour
 {
     public int Hp;
     public int ATK;
+    public int EnemScore;
     public float MoveSpeed;
 
     private Rigidbody rb;
@@ -96,7 +97,7 @@ public class Zombie : MonoBehaviour
         
         if(Hp <= 0 && !thisDie)
         {
-            PlayerStatus.Score += 1;
+            PlayerStatus.Score += EnemScore;
             thisDie = true;
         }
         if (thisDie)

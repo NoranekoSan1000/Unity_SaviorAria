@@ -21,7 +21,7 @@ public class ShotController : MonoBehaviour
 
     public int bulletNUM;
     float CoolTime=0;
-    float scopemode = 0;
+    int scopemode = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,34 +32,11 @@ public class ShotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerStatus.GunMode == 0)
-        {
-            PM_40.SetActive(true);
-            P90.SetActive(false);
-            M4A1.SetActive(false);
-            AWP.SetActive(false);
-        }
-        if (PlayerStatus.GunMode == 1)
-        {
-            PM_40.SetActive(false);
-            P90.SetActive(true);
-            M4A1.SetActive(false);
-            AWP.SetActive(false);
-        }
-        if (PlayerStatus.GunMode == 2)
-        {
-            PM_40.SetActive(false);
-            P90.SetActive(false);
-            M4A1.SetActive(true);
-            AWP.SetActive(false);
-        }
-        if (PlayerStatus.GunMode == 3)
-        {
-            PM_40.SetActive(false);
-            P90.SetActive(false);
-            M4A1.SetActive(false);
-            AWP.SetActive(true);
-        }
+        if (PlayerStatus.GunMode == 0) SkinActive(true,false,false,false);
+        if (PlayerStatus.GunMode == 1) SkinActive(false,true,false,false);
+        if (PlayerStatus.GunMode == 2) SkinActive(false,false,true,false);
+        if (PlayerStatus.GunMode == 3) SkinActive(false,false,false,true);
+
         if (CoolTime > 0) CoolTime -= Time.deltaTime;
 
         if (PlayerStatus.Ammo > 0)
@@ -67,81 +44,74 @@ public class ShotController : MonoBehaviour
             //ハンドガン
             if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 0)
             {
-                PlayerStatus.Ammo -= 1;
                 audioSource.PlayOneShot(SE_Shot);
-                GameObject Copy_Shot = Instantiate(Origin_Shot) as GameObject;
-                Copy_Shot.tag = "Shot";
-                Copy_Shot.transform.position = Bullet.transform.position;
-                Vector3 force;
-                force = Bullet.transform.forward * 1500;
-                Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-
+                SelectShot(1500, 0);
             }
 
             //サブマシンガン
             if ((OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 1 && CoolTime <= 0)
             {
-                PlayerStatus.Ammo -= 1;
                 audioSource.PlayOneShot(SE_Shot);
-                GameObject Copy_Shot = Instantiate(Origin_Shot) as GameObject;
-                Copy_Shot.tag = "Shot";
-                Copy_Shot.transform.position = Bullet.transform.position;
-                Vector3 force;
-                force = Bullet.transform.forward * 1000;
-                Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-                CoolTime = 0.075f;
+                SelectShot(1000, 0.075f);
             }
 
             //アサルトライフル
             if ((OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 2 && CoolTime <= 0)
             {
-                PlayerStatus.Ammo -= 1;
-                audioSource.PlayOneShot(SE_SniperShot);
-                GameObject Copy_Shot = Instantiate(Origin_Shot) as GameObject;
-                Copy_Shot.tag = "Shot";
-                Copy_Shot.transform.position = Bullet.transform.position;
-                Vector3 force;
-                force = Bullet.transform.forward * 1800;
-                Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-                CoolTime = 0.12f;
-
+                audioSource.PlayOneShot(SE_Shot);
+                SelectShot(1800, 0.12f);
             }
 
             //スナイパー
             if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)) && !PlayerStatus.Reloading && PlayerStatus.GunMode == 3 && CoolTime <= 0)
             {
-                PlayerStatus.Ammo -= 1;
                 audioSource.PlayOneShot(SE_SniperShot);
-                GameObject Copy_Shot = Instantiate(Origin_Shot) as GameObject;
-                Copy_Shot.tag = "Shot";
-                Copy_Shot.transform.position = Bullet.transform.position;
-                Vector3 force;
-                force = Bullet.transform.forward * 3000;
-                Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-                CoolTime = 5f;
+                SelectShot(3000, 5f);
             }
+
+            //コッキング効果音
             if (CoolTime <= 4.8f && CoolTime > 3.5f)
             {
                 audioSource.PlayOneShot(SE_BoltAction);
                 CoolTime = 1.0f;
             }
 
+            //スコープ拡大
             if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger) || Input.GetKeyDown(KeyCode.Z))
             {
                 if (scopemode < 4) scopemode++;
                 else scopemode = 0;
             }
-            if(scopemode == 0) ScopeCamera.fieldOfView = 60.5f;
-            if(scopemode == 1) ScopeCamera.fieldOfView = 20.5f;
-            if (scopemode == 2) ScopeCamera.fieldOfView = 5.5f;
-            if (scopemode == 3) ScopeCamera.fieldOfView = 1.5f;
-            if (scopemode == 4) ScopeCamera.fieldOfView = 0.7f;
+
+            float[] Focus = new float[5] { 60.5f, 20.5f, 5.5f, 1.5f, 0.7f };
+            ScopeCamera.fieldOfView = Focus[scopemode];
         }
         else
         {
            if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) && !PlayerStatus.Reloading)
-                audioSource.PlayOneShot(SE_NoAmmo);
+           audioSource.PlayOneShot(SE_NoAmmo);
         }
         
     }
+
+    public void SkinActive(bool a,bool b,bool c,bool d)
+    {
+        PM_40.SetActive(a);
+        P90.SetActive(b);
+        M4A1.SetActive(c);
+        AWP.SetActive(d);
+    }
+
+    public void SelectShot(int Speed,float CT)
+    {
+        Vector3 force;
+        PlayerStatus.Ammo -= 1;
+        GameObject Copy_Shot = Instantiate(Origin_Shot) as GameObject;
+        Copy_Shot.tag = "Shot";
+        Copy_Shot.transform.position = Bullet.transform.position;    
+        force = Bullet.transform.forward * Speed;
+        Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
+        CoolTime = CT;
+    }
+
 }
