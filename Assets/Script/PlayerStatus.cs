@@ -13,15 +13,15 @@ public class PlayerStatus : MonoBehaviour
     public static int Ammo = 20;
     public static int Score;
     public static int PlayerHP;
-    public static int[] GunAmmo = new int[4] { 16, 45, 22, 7 };
+    public static int[] GunCapacity = new int[4] { 16, 45, 22, 7 };
     public static int[] GunDamage = new int[4] { 3, 2, 4, 15 };
 
     public static bool Reloading = false;
     public static float ReloadTime = 0;
     
-
-    public Text LeftAmmoText;
-    public Text LeftTimeText;
+    public Text CapacityText;
+    public Text CapacityText3;
+    //public Text LeftTimeText;
 
     public Text ScoreText;
     string score_6digits;
@@ -56,15 +56,19 @@ public class PlayerStatus : MonoBehaviour
 
         //Phase•\Ž¦
         DispPhaseText();
-        
-        LeftAmmoText.text =": "+ Ammo;
+
+        CapacityText.text =": "+ Ammo;
+
+        CapacityText3.text = "";
+        for(int i=0;i< Ammo;i++) CapacityText3.text += 'l';
+
         if (ReloadTime > 0 && Reloading)
         {
             ReloadTime -= Time.deltaTime;
         }
         if (ReloadTime < 0 && Reloading)
         {
-            Ammo = GunAmmo[GunMode];
+            Ammo = GunCapacity[GunMode];
             Reloading = false;
         }
 

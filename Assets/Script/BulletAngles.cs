@@ -18,7 +18,7 @@ public class BulletAngles : MonoBehaviour
     void Update()
     {
         Angles = this.gameObject.transform.localEulerAngles.x;
-        if (((Angles > 60 && Angles < 90) || Input.GetKeyDown(KeyCode.R)) && !PlayerStatus.Reloading && PlayerStatus.Ammo < PlayerStatus.GunAmmo[PlayerStatus.GunMode])
+        if (((Angles > 60 && Angles < 90) || Input.GetKeyDown(KeyCode.R)) && !PlayerStatus.Reloading && PlayerStatus.Ammo < PlayerStatus.GunCapacity[PlayerStatus.GunMode])
         {
             audioSource.PlayOneShot(SE_Reload);
             PlayerStatus.ReloadTime = 1.5f;
