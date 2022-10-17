@@ -43,10 +43,13 @@ public class ShotController : MonoBehaviour
 
         if (PlayerStatus.Ammo > 0 && !PlayerStatus.Reloading)
         {
+            if (CoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//U“®ƒXƒgƒbƒv
+
             //ƒnƒ“ƒhƒKƒ“
             if (PlayerStatus.GunMode == 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
+                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//U“®
                 SelectShot(1500, 0);
             }
 
@@ -54,6 +57,7 @@ public class ShotController : MonoBehaviour
             if (PlayerStatus.GunMode == 1 && CoolTime <= 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
+                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//U“®
                 SelectShot(1000, 0.075f);
             }
 
@@ -61,6 +65,7 @@ public class ShotController : MonoBehaviour
             if ( PlayerStatus.GunMode == 2 && CoolTime <= 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
+                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//U“®
                 SelectShot(1800, 0.12f);
             }
 
@@ -68,8 +73,9 @@ public class ShotController : MonoBehaviour
             if (PlayerStatus.GunMode == 3 && CoolTime <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_SniperShot);
-                OVRInput.SetControllerVibration(0.5f, 0.3f, OVRInput.Controller.RTouch);//U“®
-                SelectShot(3000, 5f);
+                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//U“®
+                if(PlayerStatus.Ammo > 1) SelectShot(3000, 5f);
+                else SelectShot(3000, 2f);
             }
 
             //ƒRƒbƒLƒ“ƒOŒø‰Ê‰¹
