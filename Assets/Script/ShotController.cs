@@ -44,21 +44,21 @@ public class ShotController : MonoBehaviour
         if (PlayerStatus.Ammo > 0 && !PlayerStatus.Reloading)
         {
             //ハンドガン
-            if (PlayerStatus.GunMode == 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
+            if (PlayerStatus.GunMode == 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 SelectShot(1500, 0);
             }
 
             //サブマシンガン
-            if (PlayerStatus.GunMode == 1 && CoolTime <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
+            if (PlayerStatus.GunMode == 1 && CoolTime <= 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 SelectShot(1000, 0.075f);
             }
 
             //アサルトライフル
-            if ( PlayerStatus.GunMode == 2 && CoolTime <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
+            if ( PlayerStatus.GunMode == 2 && CoolTime <= 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 SelectShot(1800, 0.12f);
