@@ -68,6 +68,7 @@ public class ShotController : MonoBehaviour
             if (PlayerStatus.GunMode == 3 && CoolTime <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_SniperShot);
+                OVRInput.SetControllerVibration(0.5f, 0.3f, OVRInput.Controller.RTouch);//振動
                 SelectShot(3000, 5f);
             }
 
@@ -75,6 +76,7 @@ public class ShotController : MonoBehaviour
             if (CoolTime <= 4.8f && CoolTime > 3.5f)
             {
                 audioSource.PlayOneShot(SE_BoltAction);
+                OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//振動ストップ
                 CoolTime = 1.0f;
             }
 
