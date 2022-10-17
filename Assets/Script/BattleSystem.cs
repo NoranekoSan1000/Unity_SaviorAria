@@ -234,7 +234,7 @@ public class BattleSystem : MonoBehaviour
             spawnCount += 1;
             SpawnCoolTime = 6;
         }
-        if (spawnCount == 0 && SpawnCoolTime <= 0)
+        if (spawnCount == 4 && SpawnCoolTime <= 0)
         {
             for (int i = 4; i < 11; i+=6) EnemSpawn(1, i);
             spawnCount += 1;
@@ -441,9 +441,9 @@ public class BattleSystem : MonoBehaviour
         }
         if (spawnCount == 1 && SpawnCoolTime <= 0)
         {
-            EnemSpawn(2, 4);
+            EnemSpawn(1, 4);
             EnemSpawn(0, 3);
-            EnemSpawn(0, 5);
+            EnemSpawn(1, 5);
             spawnCount += 1;
             SpawnCoolTime = 7;
         }
@@ -457,9 +457,9 @@ public class BattleSystem : MonoBehaviour
         }
         if (spawnCount == 3 && SpawnCoolTime <= 0)
         {
-            EnemSpawn(2, 10);
+            EnemSpawn(1, 10);
             EnemSpawn(0, 9);
-            EnemSpawn(0, 11);
+            EnemSpawn(1, 11);
             spawnCount += 1;
             SpawnCoolTime = 4;
         }
@@ -696,15 +696,15 @@ public class BattleSystem : MonoBehaviour
             EnemSpawn(1, 0);
             EnemSpawn(0, 2);
             spawnCount += 1;
-            SpawnCoolTime = 7;
+            SpawnCoolTime = 5;
         }
         if (spawnCount == 1 && SpawnCoolTime <= 0)
         {
             EnemSpawn(2, 4);
-            EnemSpawn(0, 3);
-            EnemSpawn(0, 5);
+            EnemSpawn(2, 3);
+            EnemSpawn(2, 5);
             spawnCount += 1;
-            SpawnCoolTime = 7;
+            SpawnCoolTime = 5;
         }
         if (spawnCount == 2 && SpawnCoolTime <= 0)
         {
@@ -712,13 +712,13 @@ public class BattleSystem : MonoBehaviour
             EnemSpawn(1, 6);
             EnemSpawn(0, 8);
             spawnCount += 1;
-            SpawnCoolTime = 7;
+            SpawnCoolTime = 5;
         }
         if (spawnCount == 3 && SpawnCoolTime <= 0)
         {
             EnemSpawn(2, 10);
-            EnemSpawn(0, 9);
-            EnemSpawn(0, 11);
+            EnemSpawn(2, 9);
+            EnemSpawn(2, 11);
             spawnCount += 1;
             SpawnCoolTime = 4;
         }
