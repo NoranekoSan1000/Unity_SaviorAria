@@ -62,6 +62,7 @@ public class PlayerStatus : MonoBehaviour
         CapacityText3.text = "";
         for(int i=0;i< Ammo;i++) CapacityText3.text += 'l';
 
+        //ƒŠƒ[ƒhFGunAngles.cs‚É‚æ‚Á‚ÄŠÇ—
         if (ReloadTime > 0 && Reloading)
         {
             ReloadTime -= Time.deltaTime;
