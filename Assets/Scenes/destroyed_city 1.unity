@@ -3607,6 +3607,9 @@ MonoBehaviour:
   Zombie: {fileID: 1862918257}
   Ghoul: {fileID: 1527065765}
   Giant: {fileID: 1833155083}
+  UltZombie: {fileID: 1213766905}
+  UltGhoul: {fileID: 1015466081}
+  UltGiant: {fileID: 459624495}
   Spawner:
   - {fileID: 2056649520}
   - {fileID: 402243227}
@@ -8753,7 +8756,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1,
         type: 3}
       propertyPath: m_Name
-      value: '[Origin]UltimateZombie'
+      value: '[Origin]UltZombie'
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1,
         type: 3}
@@ -19614,6 +19617,9 @@ MonoBehaviour:
   Zombie: {fileID: 1862918257}
   Ghoul: {fileID: 1527065765}
   Giant: {fileID: 1833155083}
+  UltZombie: {fileID: 1213766905}
+  UltGhoul: {fileID: 1015466081}
+  UltGiant: {fileID: 459624495}
   Spawner:
   - {fileID: 2056649520}
   - {fileID: 402243227}

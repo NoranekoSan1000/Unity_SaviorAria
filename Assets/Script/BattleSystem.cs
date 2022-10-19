@@ -11,6 +11,9 @@ public class BattleSystem : MonoBehaviour
     public GameObject Zombie;
     public GameObject Ghoul;
     public GameObject Giant;
+    public GameObject UltZombie;
+    public GameObject UltGhoul;
+    public GameObject UltGiant;
     public GameObject[] Spawner = new GameObject[7];
     float SpawnCoolTime = 3;
 
@@ -87,25 +90,25 @@ public class BattleSystem : MonoBehaviour
             //zombie x4
             if (spawnCount == 0 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(2, 1);
+                EnemSpawn(4, 1);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
             if (spawnCount == 1 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(1, 4);
+                EnemSpawn(2, 4);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
             if (spawnCount == 2 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(0, 7);
+                EnemSpawn(3, 7);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
             if (spawnCount == 3 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(0, 10);
+                EnemSpawn(5, 10);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
@@ -754,6 +757,33 @@ public class BattleSystem : MonoBehaviour
             Copy_Zombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
             Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
+            EnemyAmount++;
+        }
+        if (id == 3)//ゾンビ召喚
+        {
+            GameObject Copy_UltZombie = Instantiate(UltZombie) as GameObject;
+            Copy_UltZombie.tag = "Untagged";
+            Copy_UltZombie.transform.position = Spawner[i].transform.position;
+            force = Spawner[i].transform.forward * 1;
+            Copy_UltZombie.GetComponent<Rigidbody>().AddForce(force);
+            EnemyAmount++;
+        }
+        if (id == 4)//グール召喚
+        {
+            GameObject Copy_UltZombie = Instantiate(UltGhoul) as GameObject;
+            Copy_UltZombie.tag = "Untagged";
+            Copy_UltZombie.transform.position = Spawner[i].transform.position;
+            force = Spawner[i].transform.forward * 1;
+            Copy_UltZombie.GetComponent<Rigidbody>().AddForce(force);
+            EnemyAmount++;
+        }
+        if (id == 5)//ジャイアント召喚
+        {
+            GameObject Copy_UltZombie = Instantiate(UltGiant) as GameObject;
+            Copy_UltZombie.tag = "Untagged";
+            Copy_UltZombie.transform.position = Spawner[i].transform.position;
+            force = Spawner[i].transform.forward * 1;
+            Copy_UltZombie.GetComponent<Rigidbody>().AddForce(force);
             EnemyAmount++;
         }
 
