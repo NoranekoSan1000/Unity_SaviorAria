@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1500966893}
-  m_IndirectSpecularColor: {r: 0.06362773, g: 0.052088402, b: 0.056750655, a: 1}
+  m_IndirectSpecularColor: {r: 0.06362675, g: 0.05208992, b: 0.056752313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -1423,7 +1423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &195612246
 Transform:
   m_ObjectHideFlags: 0
@@ -3047,7 +3047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &505214429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5320,7 +5320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 1484640912}
-  Bullet: {fileID: 744010308}
+  Gun: {fileID: 744010308}
+  ShotBox: {fileID: 1695387396}
   ScopeCamera: {fileID: 1213666619}
   PM_40: {fileID: 859265299}
   P90: {fileID: 991062121}
@@ -6681,7 +6682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 1484640912}
-  Bullet: {fileID: 1502616349}
+  Gun: {fileID: 0}
+  ShotBox: {fileID: 0}
   ScopeCamera: {fileID: 0}
   PM_40: {fileID: 0}
   P90: {fileID: 0}
@@ -10361,7 +10363,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 168962, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_IsActive
@@ -13514,7 +13516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 1484640912}
-  Bullet: {fileID: 1383596228}
+  Gun: {fileID: 1383596228}
+  ShotBox: {fileID: 1695387396}
   ScopeCamera: {fileID: 879143574}
   PM_40: {fileID: 191427024}
   P90: {fileID: 1272747811}
@@ -14911,6 +14914,36 @@ Transform:
   - {fileID: 1442518210}
   m_Father: {fileID: 2044528272}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1695387395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1695387396}
+  m_Layer: 0
+  m_Name: '[Copy]ShotBox'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1695387396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695387395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 730.6563, y: 1.9647503, z: 483.02383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1722747608
 PrefabInstance:

@@ -5,7 +5,8 @@ using UnityEngine;
 public class ShotController : MonoBehaviour
 {
     public GameObject Origin_Shot;
-    public GameObject Bullet;
+    public GameObject Gun;
+    public Transform ShotBox;
     public Camera ScopeCamera;
 
     public GameObject PM_40;
@@ -96,8 +97,11 @@ public class ShotController : MonoBehaviour
             ScopeCamera.fieldOfView = Focus[scopemode];
         }
         //íeêÿÇÍ
-        if(PlayerStatus.Ammo <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger)|| Input.GetMouseButtonDown(0)) && !PlayerStatus.Reloading)
+        if (PlayerStatus.Ammo <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)) && !PlayerStatus.Reloading)
+        {
+            OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
             audioSource.PlayOneShot(SE_NoAmmo);
+        }
         
     }
 
@@ -113,10 +117,10 @@ public class ShotController : MonoBehaviour
     {
         Vector3 force;
         PlayerStatus.Ammo -= 1;
-        GameObject Copy_Shot = Instantiate(Origin_Shot) as GameObject;
+        GameObject Copy_Shot = Instantiate(Origin_Shot, ShotBox) as GameObject;
         Copy_Shot.tag = "Shot";
-        Copy_Shot.transform.position = Bullet.transform.position;    
-        force = Bullet.transform.forward * Speed;
+        Copy_Shot.transform.position = Gun.transform.position;
+        force = Gun.transform.forward * Speed;
         Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
         CoolTime = CT;
     }
