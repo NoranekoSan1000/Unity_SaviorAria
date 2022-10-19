@@ -87,13 +87,13 @@ public class BattleSystem : MonoBehaviour
             //zombie x4
             if (spawnCount == 0 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(0, 1);
+                EnemSpawn(2, 1);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
             if (spawnCount == 1 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(0, 4);
+                EnemSpawn(1, 4);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
