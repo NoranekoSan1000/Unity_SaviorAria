@@ -756,6 +756,7 @@ public class BattleSystem : MonoBehaviour
             Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
             EnemyAmount++;
         }
+
     }
 
 }
