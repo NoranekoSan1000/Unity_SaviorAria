@@ -21,6 +21,8 @@ public class Zombie : MonoBehaviour
     float PlayerDamageCT=3;
     bool thisDie = false;
 
+    float CenterCoolTime = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,24 +40,25 @@ public class Zombie : MonoBehaviour
         //歩いてくるプログラム
         walkEnemy();
 
+        //ジャンプ
+        if(this.gameObject.name == "[Origin]Ghoul(Clone)") Jump();
+
         //攻撃プログラム
         EnemAttack();
 
         //死亡時
         die();
+
     }
 
 
     public void LookCenter()
     {
-        if (lookTarget)
-        {
-            var direction = lookTarget.transform.position - transform.position;
-            direction.y = 0;
+        var direction = lookTarget.transform.position - transform.position;
+        direction.y = 0;
 
-            var lookRotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 1);
-        }
+        var lookRotation = Quaternion.LookRotation(direction, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 5);     
     }
 
     public void walkEnemy()
@@ -73,6 +76,12 @@ public class Zombie : MonoBehaviour
             anim.SetBool("IsWalking", false);
         }
 
+    }
+
+    public void Jump()
+    {
+        Debug.Log("Jump");
+        rb.AddForce(new Vector3(0, 10f, 0)); //上に向かって力を加える
     }
 
     public void EnemAttack()

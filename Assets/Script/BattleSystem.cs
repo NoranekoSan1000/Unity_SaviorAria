@@ -97,25 +97,25 @@ public class BattleSystem : MonoBehaviour
             //zombie x4
             if (spawnCount == 0 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(4, 1);
+                EnemSpawn(0, 1);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
             if (spawnCount == 1 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(2, 4);
+                EnemSpawn(1, 4);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
             if (spawnCount == 2 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(3, 7);
+                EnemSpawn(4, 7);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
             if (spawnCount == 3 && SpawnCoolTime <= 0)
             {
-                EnemSpawn(5, 10);
+                EnemSpawn(4, 10);
                 spawnCount += 1;
                 SpawnCoolTime = 3;
             }
@@ -751,7 +751,7 @@ public class BattleSystem : MonoBehaviour
             GameObject Copy_Zombie = Instantiate(Zombie, ZombieBox) as GameObject;
             Copy_Zombie.tag = "Untagged";
             Copy_Zombie.transform.position = Spawner[i].transform.position;
-            force = Spawner[i].transform.forward * 1;
+            force = Spawner[i].transform.forward * 0;
             Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
             EnemyAmount++;
         }
@@ -760,7 +760,7 @@ public class BattleSystem : MonoBehaviour
             GameObject Copy_Zombie = Instantiate(Ghoul, ZombieBox) as GameObject;
             Copy_Zombie.tag = "Untagged";
             Copy_Zombie.transform.position = Spawner[i].transform.position;
-            force = Spawner[i].transform.forward * 1;
+            force = Spawner[i].transform.forward * 0;
             Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
             EnemyAmount++;
         }
@@ -769,7 +769,7 @@ public class BattleSystem : MonoBehaviour
             GameObject Copy_Zombie = Instantiate(Giant, ZombieBox) as GameObject;
             Copy_Zombie.tag = "Untagged";
             Copy_Zombie.transform.position = Spawner[i].transform.position;
-            force = Spawner[i].transform.forward * 1;
+            force = Spawner[i].transform.forward * 0;
             Copy_Zombie.GetComponent<Rigidbody>().AddForce(force);
             EnemyAmount++;
         }
@@ -778,7 +778,7 @@ public class BattleSystem : MonoBehaviour
             GameObject Copy_UltZombie = Instantiate(UltZombie, ZombieBox) as GameObject;
             Copy_UltZombie.tag = "Untagged";
             Copy_UltZombie.transform.position = Spawner[i].transform.position;
-            force = Spawner[i].transform.forward * 1;
+            force = Spawner[i].transform.forward * 0;
             Copy_UltZombie.GetComponent<Rigidbody>().AddForce(force);
             EnemyAmount++;
         }
@@ -787,7 +787,7 @@ public class BattleSystem : MonoBehaviour
             GameObject Copy_UltZombie = Instantiate(UltGhoul, ZombieBox) as GameObject;
             Copy_UltZombie.tag = "Untagged";
             Copy_UltZombie.transform.position = Spawner[i].transform.position;
-            force = Spawner[i].transform.forward * 1;
+            force = Spawner[i].transform.forward * 0;
             Copy_UltZombie.GetComponent<Rigidbody>().AddForce(force);
             EnemyAmount++;
         }
@@ -796,7 +796,7 @@ public class BattleSystem : MonoBehaviour
             GameObject Copy_UltZombie = Instantiate(UltGiant, ZombieBox) as GameObject;
             Copy_UltZombie.tag = "Untagged";
             Copy_UltZombie.transform.position = Spawner[i].transform.position;
-            force = Spawner[i].transform.forward * 1;
+            force = Spawner[i].transform.forward * 0;
             Copy_UltZombie.GetComponent<Rigidbody>().AddForce(force);
             EnemyAmount++;
         }
