@@ -14,8 +14,11 @@ public class BattleSystem : MonoBehaviour
     public GameObject UltZombie;
     public GameObject UltGhoul;
     public GameObject UltGiant;
+    public Transform ZombieBox;
     public GameObject[] Spawner = new GameObject[7];
     float SpawnCoolTime = 3;
+
+    public GameObject[] AreaSmoke = new GameObject[4];
 
     public bool GameChanger;//phase切り替わりのタイミング
     int spawnCount = 0;//敵出現タイミング
@@ -734,7 +737,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (id == 0)//ゾンビ召喚
         {
-            GameObject Copy_Zombie = Instantiate(Zombie) as GameObject;
+            GameObject Copy_Zombie = Instantiate(Zombie, ZombieBox) as GameObject;
             Copy_Zombie.tag = "Untagged";
             Copy_Zombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
@@ -743,7 +746,7 @@ public class BattleSystem : MonoBehaviour
         }
         if (id == 1)//グール召喚
         {
-            GameObject Copy_Zombie = Instantiate(Ghoul) as GameObject;
+            GameObject Copy_Zombie = Instantiate(Ghoul, ZombieBox) as GameObject;
             Copy_Zombie.tag = "Untagged";
             Copy_Zombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
@@ -752,7 +755,7 @@ public class BattleSystem : MonoBehaviour
         }
         if (id == 2)//ジャイアント召喚
         {
-            GameObject Copy_Zombie = Instantiate(Giant) as GameObject;
+            GameObject Copy_Zombie = Instantiate(Giant, ZombieBox) as GameObject;
             Copy_Zombie.tag = "Untagged";
             Copy_Zombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
@@ -761,7 +764,7 @@ public class BattleSystem : MonoBehaviour
         }
         if (id == 3)//ゾンビ召喚
         {
-            GameObject Copy_UltZombie = Instantiate(UltZombie) as GameObject;
+            GameObject Copy_UltZombie = Instantiate(UltZombie, ZombieBox) as GameObject;
             Copy_UltZombie.tag = "Untagged";
             Copy_UltZombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
@@ -770,7 +773,7 @@ public class BattleSystem : MonoBehaviour
         }
         if (id == 4)//グール召喚
         {
-            GameObject Copy_UltZombie = Instantiate(UltGhoul) as GameObject;
+            GameObject Copy_UltZombie = Instantiate(UltGhoul, ZombieBox) as GameObject;
             Copy_UltZombie.tag = "Untagged";
             Copy_UltZombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
@@ -779,7 +782,7 @@ public class BattleSystem : MonoBehaviour
         }
         if (id == 5)//ジャイアント召喚
         {
-            GameObject Copy_UltZombie = Instantiate(UltGiant) as GameObject;
+            GameObject Copy_UltZombie = Instantiate(UltGiant, ZombieBox) as GameObject;
             Copy_UltZombie.tag = "Untagged";
             Copy_UltZombie.transform.position = Spawner[i].transform.position;
             force = Spawner[i].transform.forward * 1;
