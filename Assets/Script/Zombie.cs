@@ -63,7 +63,7 @@ public class Zombie : MonoBehaviour
         Vector3 MyPos = this.gameObject.transform.position;
         Vector3 CenterPos = lookTarget.transform.position;
         float dis = Vector3.Distance(MyPos, CenterPos);
-        if (dis > 2.7f)
+        if (dis > 3.7f)
         {
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
             anim.SetBool("IsWalking", true);
@@ -80,7 +80,7 @@ public class Zombie : MonoBehaviour
         Vector3 MyPos = this.gameObject.transform.position;
         Vector3 CenterPos = lookTarget.transform.position;
         float dis = Vector3.Distance(MyPos, CenterPos);
-        if (dis <= 3.0f)
+        if (dis <= 4.0f)
         {
             PlayerDamageCT -= Time.deltaTime;            
             if(PlayerDamageCT <= 0)

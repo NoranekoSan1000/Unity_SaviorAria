@@ -42,7 +42,11 @@ public class BattleSystem : MonoBehaviour
         Debug.Log(spawnCount);
         SpawnCoolTime -= Time.deltaTime;
 
-        if (PlayerStatus.GamePhase == 1) Phase1();
+        if (PlayerStatus.GamePhase == 1)
+        {
+            Phase1();
+            SetSmoke(false, true, true, true);
+        }
         if (PlayerStatus.GamePhase == 2) Phase2();
         if (PlayerStatus.GamePhase == 3) Phase3();
         if (PlayerStatus.GamePhase == 4) Phase4();
@@ -732,6 +736,13 @@ public class BattleSystem : MonoBehaviour
         if (spawnCount == 4 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
     }
 
+    public void SetSmoke(bool a,bool b,bool c,bool d)
+    {
+        AreaSmoke[0].SetActive(a);
+        AreaSmoke[1].SetActive(b);
+        AreaSmoke[2].SetActive(c);
+        AreaSmoke[3].SetActive(d);
+    }
 
     public void EnemSpawn(int id, int i)
     {
