@@ -55,7 +55,6 @@ public class Zombie : MonoBehaviour
 
         //Ž€–SŽž
         die();
-
     }
 
 
@@ -93,8 +92,8 @@ public class Zombie : MonoBehaviour
     {
         if (JumpCT <= 10) JumpCT += Time.deltaTime;
         if (dis > 6.0f && JumpCT < 3) rb.AddForce(new Vector3(0, 0, 3f)); //‰¡‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
-        if (dis > 6.0f && JumpCT > 3) rb.AddForce(new Vector3(0, 0, -3f)); //‰¡‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
-        if (JumpCT > 6) JumpCT = 0;
+        if (dis > 6.0f && JumpCT >= 3 && JumpCT < 6) rb.AddForce(new Vector3(0, 0, -3f)); //‰¡‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
+        if (JumpCT >= 6) JumpCT = 0;
     }
 
     public void EnemAttack(float dis)

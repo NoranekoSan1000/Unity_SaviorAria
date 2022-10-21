@@ -3060,7 +3060,7 @@ MonoBehaviour:
   Hp: 85
   ATK: 4
   EnemScore: 16
-  MoveSpeed: 3.5
+  MoveSpeed: 2.75
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1808465460}
   Body: {fileID: 1236947037}
@@ -13065,7 +13065,7 @@ MonoBehaviour:
   Hp: 65
   ATK: 3
   EnemScore: 10
-  MoveSpeed: 4
+  MoveSpeed: 3
   lookTarget: {fileID: 2248959}
   Head: {fileID: 107555821}
   Body: {fileID: 1960354034}
@@ -14724,7 +14724,7 @@ MonoBehaviour:
   Hp: 40
   ATK: 2
   EnemScore: 4
-  MoveSpeed: 3
+  MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1980428282}
   Body: {fileID: 1247357204}
@@ -27850,7 +27850,7 @@ MonoBehaviour:
   Hp: 45
   ATK: 2
   EnemScore: 5
-  MoveSpeed: 3
+  MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 2103063454}
   Body: {fileID: 1308999585}
@@ -31365,7 +31365,7 @@ MonoBehaviour:
   Hp: 65
   ATK: 3
   EnemScore: 8
-  MoveSpeed: 2.5
+  MoveSpeed: 2.25
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1722958873}
   Body: {fileID: 1635192774}
