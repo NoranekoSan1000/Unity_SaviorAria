@@ -25,9 +25,9 @@ public class ZombieHit : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collider)
     {
-        if (collision.gameObject.tag == "Shot")
+        if (collider.gameObject.tag == "Shot")
         {
             if (this.gameObject.tag == "ZombieHead" && !HeadHit)
             {

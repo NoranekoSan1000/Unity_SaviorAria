@@ -148,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2248959}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dd1ff9f653b72e46b6e15ec137d3f56, type: 3}
   m_Name: 
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 51246469}
   - component: {fileID: 51246468}
   - component: {fileID: 51246471}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: ZombieBody
   m_Icon: {fileID: 0}
@@ -207,12 +207,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51246466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1862918263}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &51246468
 Rigidbody:
@@ -224,12 +224,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &51246469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 107555824}
   - component: {fileID: 107555823}
   - component: {fileID: 107555822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: ZombieHead
   m_Icon: {fileID: 0}
@@ -2213,11 +2213,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 311078444}
-  - component: {fileID: 311078447}
   - component: {fileID: 311078446}
+  - component: {fileID: 311078447}
   - component: {fileID: 311078445}
   - component: {fileID: 311078448}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: ZombieHead
   m_Icon: {fileID: 0}
@@ -2231,12 +2231,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311078443}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.005998611, z: -0.09201049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1862918263}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &311078445
 Rigidbody:
@@ -2246,14 +2246,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311078443}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &311078446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2959,6 +2959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Origin]UltGiant'
       objectReference: {fileID: 0}
+    - target: {fileID: 100072, guid: 61b8698a2176146289745095c88a5155, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400072, guid: 61b8698a2176146289745095c88a5155, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -3182,9 +3186,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &462535658
 GameObject:
@@ -3965,6 +3969,136 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19e3bec5d2084834e86823c680ab9eb1, type: 3}
+--- !u!1 &574063260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -91218948054337163, guid: 8f7380da49034cd488ddff94b1ac35d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1889686759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &574063263
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574063260}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.471
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!136 &574063265
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574063260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.09
+  m_Height: 0.3
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.2, z: 1.65}
+--- !u!114 &574063266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574063260}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6971f5f5b70a4da46844159f8844a513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  Zomb: {fileID: 1862918257}
 --- !u!1 &587171785
 GameObject:
   m_ObjectHideFlags: 0
@@ -12833,6 +12967,10 @@ PrefabInstance:
       value: '[Origin]UltGhoul'
       objectReference: {fileID: 0}
     - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: m_TagString
       value: Original
       objectReference: {fileID: 0}
@@ -13072,9 +13210,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &1022222208
 GameObject:
@@ -13424,6 +13562,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: '[Origin]UltZombie'
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1,
         type: 3}
@@ -14707,9 +14850,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!4 &1213766911 stripped
 Transform:
@@ -24555,7 +24698,7 @@ GameObject:
   - component: {fileID: 1236947040}
   - component: {fileID: 1236947039}
   - component: {fileID: 1236947038}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: ZombieBody
   m_Icon: {fileID: 0}
@@ -24825,7 +24968,7 @@ GameObject:
   - component: {fileID: 1247357207}
   - component: {fileID: 1247357206}
   - component: {fileID: 1247357205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: ZombieBody
   m_Icon: {fileID: 0}
@@ -25469,7 +25612,7 @@ GameObject:
   - component: {fileID: 1308999589}
   - component: {fileID: 1308999588}
   - component: {fileID: 1308999587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: ZombieBody
   m_Icon: {fileID: 0}
@@ -26801,7 +26944,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!135 &1484640915
@@ -27614,6 +27757,10 @@ PrefabInstance:
       value: '[Origin]Ghoul'
       objectReference: {fileID: 0}
     - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: m_TagString
       value: Original
       objectReference: {fileID: 0}
@@ -27825,11 +27972,11 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527065765}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 6
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1000
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
@@ -29098,7 +29245,7 @@ GameObject:
   - component: {fileID: 1635192777}
   - component: {fileID: 1635192776}
   - component: {fileID: 1635192775}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: ZombieBody
   m_Icon: {fileID: 0}
@@ -30149,7 +30296,7 @@ GameObject:
   - component: {fileID: 1722958876}
   - component: {fileID: 1722958875}
   - component: {fileID: 1722958874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: ZombieHead
   m_Icon: {fileID: 0}
@@ -30917,7 +31064,7 @@ GameObject:
   - component: {fileID: 1808465463}
   - component: {fileID: 1808465462}
   - component: {fileID: 1808465461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: ZombieHead
   m_Icon: {fileID: 0}
@@ -31124,6 +31271,10 @@ PrefabInstance:
     - target: {fileID: 100072, guid: 61b8698a2176146289745095c88a5155, type: 3}
       propertyPath: m_Name
       value: '[Origin]Giant'
+      objectReference: {fileID: 0}
+    - target: {fileID: 100072, guid: 61b8698a2176146289745095c88a5155, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400072, guid: 61b8698a2176146289745095c88a5155, type: 3}
       propertyPath: m_RootOrder
@@ -31340,9 +31491,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &1848345030
 GameObject:
@@ -36414,9 +36565,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!4 &1862918263 stripped
 Transform:
@@ -36569,13 +36720,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1,
+        type: 3}
       propertyPath: m_TagString
       value: Original
       objectReference: {fileID: 0}
     - target: {fileID: -91218948054337163, guid: 8f7380da49034cd488ddff94b1ac35d1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -91218948054337163, guid: 8f7380da49034cd488ddff94b1ac35d1,
+        type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ZombieHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841111061274514038, guid: 8f7380da49034cd488ddff94b1ac35d1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
@@ -36963,7 +37129,7 @@ GameObject:
   - component: {fileID: 1960354037}
   - component: {fileID: 1960354036}
   - component: {fileID: 1960354035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: ZombieBody
   m_Icon: {fileID: 0}
@@ -37137,7 +37303,7 @@ GameObject:
   - component: {fileID: 1980428285}
   - component: {fileID: 1980428284}
   - component: {fileID: 1980428283}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: ZombieHead
   m_Icon: {fileID: 0}
@@ -38121,7 +38287,7 @@ GameObject:
   - component: {fileID: 2103063458}
   - component: {fileID: 2103063457}
   - component: {fileID: 2103063456}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: ZombieHead
   m_Icon: {fileID: 0}

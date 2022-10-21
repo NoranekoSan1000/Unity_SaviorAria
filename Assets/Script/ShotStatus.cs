@@ -17,7 +17,7 @@ public class ShotStatus : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collider)
     {
         Destroy(this.gameObject);
     }

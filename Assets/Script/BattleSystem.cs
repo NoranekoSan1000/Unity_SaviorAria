@@ -100,7 +100,7 @@ public class BattleSystem : MonoBehaviour
         }
         if (spawnCount == 1 && SpawnCoolTime <= 0)
         {
-            EnemSpawn(0, 0);
+            EnemSpawn(2, 0);
             EnemSpawn(0, 2);
             spawnCount += 1;
             SpawnCoolTime = 5;

@@ -22,6 +22,7 @@ public class Zombie : MonoBehaviour
     bool thisDie = false;
 
     float CenterCoolTime = 2;
+    float JumpCT=0;
 
     // Start is called before the first frame update
     void Start()
@@ -33,18 +34,24 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 MyPos = this.transform.position;
+        Vector3 CenterPos = lookTarget.transform.position;
+        float dis = Vector3.Distance(MyPos, CenterPos);
 
         //中央を向くプログラム
         LookCenter();
 
         //歩いてくるプログラム
-        walkEnemy();
+        walkEnemy(dis);
 
         //ジャンプ
-        if(this.gameObject.name == "[Origin]Ghoul(Clone)") Jump();
+        if (this.gameObject.name == "[Origin]Ghoul(Clone)") Jump(dis);
+
+        //横歩き
+        if (this.gameObject.name == "[Origin]Giant(Clone)") LeftWalk(dis);
 
         //攻撃プログラム
-        EnemAttack();
+        EnemAttack(dis);
 
         //死亡時
         die();
@@ -56,19 +63,16 @@ public class Zombie : MonoBehaviour
     {
         var direction = lookTarget.transform.position - transform.position;
         direction.y = 0;
-
         var lookRotation = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 5);     
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 100);   
     }
 
-    public void walkEnemy()
+    public void walkEnemy(float dis)
     {
-        Vector3 MyPos = this.gameObject.transform.position;
-        Vector3 CenterPos = lookTarget.transform.position;
-        float dis = Vector3.Distance(MyPos, CenterPos);
         if (dis > 3.7f)
         {
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+
             anim.SetBool("IsWalking", true);
         }
         else
@@ -78,17 +82,23 @@ public class Zombie : MonoBehaviour
 
     }
 
-    public void Jump()
+    public void Jump(float dis)
     {
-        Debug.Log("Jump");
-        rb.AddForce(new Vector3(0, 10f, 0)); //上に向かって力を加える
+        if(JumpCT <= 10) JumpCT += Time.deltaTime;
+        if (dis > 8.0f && JumpCT > 3) rb.AddForce(new Vector3(0, 100f, 0)); //上に向かって力を加える
+        if (JumpCT >3.25f) JumpCT = 0;
     }
 
-    public void EnemAttack()
+    public void LeftWalk(float dis)
     {
-        Vector3 MyPos = this.gameObject.transform.position;
-        Vector3 CenterPos = lookTarget.transform.position;
-        float dis = Vector3.Distance(MyPos, CenterPos);
+        if (JumpCT <= 10) JumpCT += Time.deltaTime;
+        if (dis > 6.0f && JumpCT < 3) rb.AddForce(new Vector3(0, 0, 3f)); //横に向かって力を加える
+        if (dis > 6.0f && JumpCT > 3) rb.AddForce(new Vector3(0, 0, -3f)); //横に向かって力を加える
+        if (JumpCT > 6) JumpCT = 0;
+    }
+
+    public void EnemAttack(float dis)
+    {
         if (dis <= 4.0f)
         {
             PlayerDamageCT -= Time.deltaTime;            
