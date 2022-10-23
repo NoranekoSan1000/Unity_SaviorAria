@@ -28,7 +28,6 @@ public class TargetStatus : MonoBehaviour
     {
         if(StartTarget)
         {
-            PlayerStatus.GameStart = true;
             PlayerStatus.Score = 0;
             //PlayerStatus.GameTime = 30;
         }

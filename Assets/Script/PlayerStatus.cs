@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public static bool GameStart;
-   // public static float GameTime;
-
     public static int GunMode = 0;
     public static int GamePhase = 1;
     public static int Ammo = 20;
@@ -35,10 +32,12 @@ public class PlayerStatus : MonoBehaviour
     void Start()
     {
         FadeController.isFadeIn = true;
-        GameStart = false;
-        //GameTime = 30;
+        GunMode = 0;
+        GamePhase = 1;
         Score = 0;
+        Ammo = 20;
         PlayerHP = 20;
+        Reloading = false;
 
         PhaseText.text = "";
     }

@@ -26,7 +26,7 @@ public class TitleShot : MonoBehaviour
     {
         if (CoolTime > 0) CoolTime -= Time.deltaTime;
 
-        if (PlayerStatus.Ammo > 0)
+        if (TitleStatus.TitleAmmo > 0)
         {
             if (CoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//振動ストップ
             //ハンドガン
