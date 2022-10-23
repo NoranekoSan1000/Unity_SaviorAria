@@ -10,11 +10,11 @@ public class Result : MonoBehaviour
     {
         ScoreManager.FirstStart = true;
         //ƒ‰ƒ“ƒLƒ“ƒO
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 9; i++)
         {
             if (ScoreManager.Ranking[i] <= PlayerStatus.Score)
             {
-                for (int j = 5; j >= i; j--)
+                for (int j = 7; j >= i; j--)
                 {
                     ScoreManager.Ranking[j + 1] = ScoreManager.Ranking[j];
                 }
@@ -22,6 +22,7 @@ public class Result : MonoBehaviour
                 break;
             }
         }
+        ScoreManager.PlayCount += 1;
     }
 
     // Update is called once per frame
