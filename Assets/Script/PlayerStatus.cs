@@ -38,6 +38,8 @@ public class PlayerStatus : MonoBehaviour
         Ammo = 20;
         PlayerHP = 20;
         Reloading = false;
+        ReloadTime = 0;
+        textTime = -2;
 
         PhaseText.text = "";
     }
@@ -83,6 +85,7 @@ public class PlayerStatus : MonoBehaviour
         {
             FadeController.isFadeOut = true;
             PlayerHPText.text = "Game Over";
+            
         }
 
     }

@@ -18,6 +18,7 @@ public class TitleStatus : MonoBehaviour
     {
         GameStart = false;
         Wait = 0;
+        Wait2 = 0;
         FadeController.isFadeIn = true;
     }
 

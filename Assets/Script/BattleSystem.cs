@@ -25,11 +25,20 @@ public class BattleSystem : MonoBehaviour
     int PhaseBGM=0;
     public static int EnemyAmount = 0;
 
+    float deathCT=0;
+
     Vector3 force;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameChanger = false;
+        SpawnCoolTime = 3;
+        spawnCount = 0;
+        PhaseBGM = 0;     
+        EnemyAmount = 0;
+        deathCT = 0;
+
         //BGM
         audios = GetComponent<AudioSource>();
         audios.clip = BGM[PlayerStatus.GunMode];
@@ -85,7 +94,8 @@ public class BattleSystem : MonoBehaviour
             }
         }
 
-        if (PlayerStatus.GamePhase == 17 && SpawnCoolTime <= 0) SceneManager.LoadScene("Result");
+        if (PlayerStatus.PlayerHP <= 0) deathCT += Time.deltaTime;
+        if ((PlayerStatus.GamePhase == 17 && SpawnCoolTime <= 0) || deathCT > 4) SceneManager.LoadScene("Result");
     }
 
     void Phase1()
