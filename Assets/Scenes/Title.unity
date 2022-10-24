@@ -14564,19 +14564,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1307956083}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1638661049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638661047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf2dd1cced02a54ab58a381719cd695, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SE_Reload: {fileID: 8300000, guid: bb32876589305e3429ccf02378719f29, type: 3}
 --- !u!82 &1638661050
 AudioSource:
   m_ObjectHideFlags: 0
