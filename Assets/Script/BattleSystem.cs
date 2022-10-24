@@ -48,7 +48,6 @@ public class BattleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(spawnCount);
         SpawnCoolTime -= Time.deltaTime;
 
         if (PlayerStatus.GamePhase == 1) Phase1();

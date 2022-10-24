@@ -6,7 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Result : MonoBehaviour
 {
+    public AudioClip[] BGM;
+    AudioSource audios;
+
+    public GameObject RedPanel;
+    public Text GameOverorClear;
     public Text ResultScoreText;
+    public Text EndText;
     public static float ScoretextTime = -2;
     char[] phaseChar = new char[7] { ' ', 'S', 'c', 'o', 'r', 'e', ' ' };
 
@@ -15,8 +21,15 @@ public class Result : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //BGM
+        audios = GetComponent<AudioSource>();      
+        if (PlayerStatus.GamePhase >= 17) audios.clip = BGM[1];//clear
+        else audios.clip = BGM[0];//gameover
+        audios.Play();
+
         ResultScoreText.text = "";
         ScoretextTime = -2;
+        EndText.text = "";
 
         ScoreManager.FirstStart = true;
         //ランキング
@@ -45,6 +58,16 @@ public class Result : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerStatus.GamePhase >= 17)
+        {
+            GameOverorClear.text = "GameClear";//clear
+            RedPanel.SetActive(false);
+        }
+        else
+        {
+            GameOverorClear.text = "GameOver";//gameover
+            RedPanel.SetActive(true);
+        }
         if (ScoretextTime < 7f) ScoretextTime += Time.deltaTime;
 
         if (ScoretextTime > 0.12f) ResultScoreText.text = " ";
@@ -55,6 +78,8 @@ public class Result : MonoBehaviour
         if (ScoretextTime > 1.32f) ResultScoreText.text = "  Score  " + ScoreD[0] + "" + ScoreD[1] + "" + ScoreD[2] + "" + ScoreD[3];
         if (ScoretextTime > 1.44f) ResultScoreText.text = "  Score  " + ScoreD[0] + "" + ScoreD[1] + "" + ScoreD[2] + "" + ScoreD[3] + "" + ScoreD[4];
         if (ScoretextTime > 1.56f) ResultScoreText.text = "  Score  " + ScoreD[0] + "" + ScoreD[1] + "" + ScoreD[2] + "" + ScoreD[3] + "" + ScoreD[4] + "" + ScoreD[5];
+
+        if (ScoretextTime > 4f) EndText.text = "-　トリガーを引いて終了　-";
 
         if (Input.GetKeyDown(KeyCode.A)) SceneManager.LoadScene(0);
     }
