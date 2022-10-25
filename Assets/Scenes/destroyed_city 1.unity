@@ -3059,7 +3059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 75
   ATK: 4
-  EnemScore: 16
+  EnemScore: 21
   MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1808465460}
@@ -3628,8 +3628,6 @@ MonoBehaviour:
   - {fileID: 587171785}
   - {fileID: 1228796933}
   GameChanger: 0
-  SpawnPoss: {fileID: 0}
-  lookTarget: {fileID: 0}
 --- !u!1001 &519064490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10273,13 +10271,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.55
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 59
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -13066,7 +13064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 55
   ATK: 3
-  EnemScore: 10
+  EnemScore: 15
   MoveSpeed: 3
   lookTarget: {fileID: 2248959}
   Head: {fileID: 107555821}
@@ -14725,7 +14723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 30
   ATK: 2
-  EnemScore: 4
+  EnemScore: 9
   MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1980428282}
@@ -27851,7 +27849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 40
   ATK: 2
-  EnemScore: 5
+  EnemScore: 10
   MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 2103063454}
@@ -28573,13 +28571,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.57
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 49
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -31366,7 +31364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 60
   ATK: 3
-  EnemScore: 8
+  EnemScore: 13
   MoveSpeed: 2
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1722958873}
@@ -36440,7 +36438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 15
   ATK: 1
-  EnemScore: 2
+  EnemScore: 7
   MoveSpeed: 2
   lookTarget: {fileID: 2248959}
   Head: {fileID: 311078443}
@@ -38800,8 +38798,6 @@ MonoBehaviour:
   - {fileID: 587171785}
   - {fileID: 1228796933}
   GameChanger: 0
-  SpawnPoss: {fileID: 1123277099}
-  lookTarget: {fileID: 2248959}
 --- !u!1001 &2145136502
 PrefabInstance:
   m_ObjectHideFlags: 0
