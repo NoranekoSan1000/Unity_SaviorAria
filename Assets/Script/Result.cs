@@ -80,7 +80,6 @@ public class Result : MonoBehaviour
         if (ScoretextTime > 1.56f) ResultScoreText.text = "  Score  " + ScoreD[0] + "" + ScoreD[1] + "" + ScoreD[2] + "" + ScoreD[3] + "" + ScoreD[4] + "" + ScoreD[5];
 
         if (ScoretextTime > 4f) EndText.text = "-　トリガーを引いて終了　-";
-
-        if (Input.GetKeyDown(KeyCode.A)) SceneManager.LoadScene(0);
+        if (ScoretextTime > 4.2f && (Input.GetKeyDown(KeyCode.A) || (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger)))) SceneManager.LoadScene(0);
     }
 }

@@ -1968,7 +1968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257703904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.758667, y: -4.2705193, z: 11.9}
+  m_LocalPosition: {x: 43.758667, y: -4.2705193, z: 6.340002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -3057,10 +3057,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db931b6514a56d46af0531e8a2189d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 85
+  Hp: 75
   ATK: 4
   EnemScore: 16
-  MoveSpeed: 2.75
+  MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1808465460}
   Body: {fileID: 1236947037}
@@ -3628,6 +3628,8 @@ MonoBehaviour:
   - {fileID: 587171785}
   - {fileID: 1228796933}
   GameChanger: 0
+  SpawnPoss: {fileID: 0}
+  lookTarget: {fileID: 0}
 --- !u!1001 &519064490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11995,7 +11997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888895221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.7, y: -4.2705193, z: -0.4}
+  m_LocalPosition: {x: 42.87, y: -4.2705193, z: -6.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -12245,7 +12247,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980154535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.3, y: -4.2705193, z: 43.99}
+  m_LocalPosition: {x: -19.3, y: -4.2705193, z: 45.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -12949,7 +12951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014857970}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.37, y: -4.2705193, z: 45.6557}
+  m_LocalPosition: {x: -3.37, y: -4.2705193, z: 48.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -13062,7 +13064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db931b6514a56d46af0531e8a2189d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 65
+  Hp: 55
   ATK: 3
   EnemScore: 10
   MoveSpeed: 3
@@ -13206,9 +13208,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015466081}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1000
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -13945,7 +13947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123277099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.4, y: -4.2705193, z: -36.9}
+  m_LocalPosition: {x: -5.4, y: -4.2705193, z: -41.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -14721,7 +14723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db931b6514a56d46af0531e8a2189d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 40
+  Hp: 30
   ATK: 2
   EnemScore: 4
   MoveSpeed: 2.5
@@ -27610,7 +27612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509012889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.4, y: -4.2705193, z: 23.2}
+  m_LocalPosition: {x: 41.8, y: -4.2705193, z: 17.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -27847,7 +27849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db931b6514a56d46af0531e8a2189d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 45
+  Hp: 40
   ATK: 2
   EnemScore: 5
   MoveSpeed: 2.5
@@ -27972,7 +27974,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527065765}
   serializedVersion: 2
-  m_Mass: 6
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 1000
   m_UseGravity: 1
@@ -28023,7 +28025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527143492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.3, y: -4.2705193, z: -39.684296}
+  m_LocalPosition: {x: 15.3, y: -4.2705193, z: -38.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -31249,7 +31251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809326551}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6, y: -4.2705193, z: -40.924316}
+  m_LocalPosition: {x: 3.6, y: -4.2705193, z: -41.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -31362,10 +31364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db931b6514a56d46af0531e8a2189d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 65
+  Hp: 60
   ATK: 3
   EnemScore: 8
-  MoveSpeed: 2.25
+  MoveSpeed: 2
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1722958873}
   Body: {fileID: 1635192774}
@@ -31519,7 +31521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848345030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.58, y: -4.2705193, z: 45}
+  m_LocalPosition: {x: -10.58, y: -4.2705193, z: 48.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903400874}
@@ -36436,7 +36438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db931b6514a56d46af0531e8a2189d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 20
+  Hp: 15
   ATK: 1
   EnemScore: 2
   MoveSpeed: 2
@@ -38798,6 +38800,8 @@ MonoBehaviour:
   - {fileID: 587171785}
   - {fileID: 1228796933}
   GameChanger: 0
+  SpawnPoss: {fileID: 1123277099}
+  lookTarget: {fileID: 2248959}
 --- !u!1001 &2145136502
 PrefabInstance:
   m_ObjectHideFlags: 0

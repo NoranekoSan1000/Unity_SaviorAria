@@ -33,7 +33,7 @@ public class PlayerStatus : MonoBehaviour
     {
         FadeController.isFadeIn = true;
         GunMode = 0;
-        GamePhase = 1;
+        GamePhase = 4;
         Score = 0;
         Ammo = 20;
         PlayerHP = 20;

@@ -24,6 +24,8 @@ public class Zombie : MonoBehaviour
     float CenterCoolTime = 2;
     float JumpCT=0;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,10 +47,10 @@ public class Zombie : MonoBehaviour
         walkEnemy(dis);
 
         //ジャンプ
-        if (this.gameObject.name == "[Origin]Ghoul(Clone)") Jump(dis);
+        if (this.gameObject.name == "[Origin]Ghoul(Clone)" || this.gameObject.name == "[Origin]UltGhoul(Clone)") Jump(dis);
 
         //横歩き
-        if (this.gameObject.name == "[Origin]Giant(Clone)") LeftWalk(dis);
+        if (this.gameObject.name == "[Origin]Giant(Clone)" || this.gameObject.name == "[Origin]UltGiant(Clone)") LeftWalk(dis);
 
         //攻撃プログラム
         EnemAttack(dis);
@@ -84,15 +86,15 @@ public class Zombie : MonoBehaviour
     public void Jump(float dis)
     {
         if(JumpCT <= 10) JumpCT += Time.deltaTime;
-        if (dis > 8.0f && JumpCT > 3) rb.AddForce(new Vector3(0, 100f, 0)); //上に向かって力を加える
+        if (dis > 8.0f && JumpCT > 3) rb.AddForce(new Vector3(0, 120f, 0)); //上に向かって力を加える
         if (JumpCT >3.25f) JumpCT = 0;
     }
 
     public void LeftWalk(float dis)
     {
         if (JumpCT <= 10) JumpCT += Time.deltaTime;
-        if (dis > 6.0f && JumpCT < 3) rb.AddForce(new Vector3(0, 0, 3f)); //横に向かって力を加える
-        if (dis > 6.0f && JumpCT >= 3 && JumpCT < 6) rb.AddForce(new Vector3(0, 0, -3f)); //横に向かって力を加える
+        if (dis > 6.0f && JumpCT < 3) rb.AddForce(new Vector3(4f, 0, 4f)); //横に向かって力を加える
+        if (dis > 6.0f && JumpCT >= 3 && JumpCT < 6) rb.AddForce(new Vector3(-4f, 0, -4f)); //横に向かって力を加える
         if (JumpCT >= 6) JumpCT = 0;
     }
 
