@@ -21,7 +21,7 @@ public class GunAngles : MonoBehaviour
         if (((Angles > 55 && Angles < 90) || Input.GetKeyDown(KeyCode.R)) && !PlayerStatus.Reloading && PlayerStatus.Ammo < PlayerStatus.GunCapacity[PlayerStatus.GunMode])
         {
             audioSource.PlayOneShot(SE_Reload);
-            if(PlayerStatus.Ammo < PlayerStatus.GunCapacity[PlayerStatus.GunMode]) PlayerStatus.ReloadTime = 1.5f;
+            if(PlayerStatus.Ammo < PlayerStatus.GunCapacity[PlayerStatus.GunMode]) PlayerStatus.ReloadTime = 1f;
             if(PlayerStatus.Ammo <= 0) PlayerStatus.ReloadTime = 1.25f;
             PlayerStatus.Reloading = true;
         }

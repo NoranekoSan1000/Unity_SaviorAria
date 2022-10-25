@@ -3059,7 +3059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 75
   ATK: 4
-  EnemScore: 21
+  EnemScore: 42
   MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1808465460}
@@ -13064,7 +13064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 55
   ATK: 3
-  EnemScore: 15
+  EnemScore: 30
   MoveSpeed: 3
   lookTarget: {fileID: 2248959}
   Head: {fileID: 107555821}
@@ -14723,7 +14723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 30
   ATK: 2
-  EnemScore: 9
+  EnemScore: 18
   MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1980428282}
@@ -27849,7 +27849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 40
   ATK: 2
-  EnemScore: 10
+  EnemScore: 20
   MoveSpeed: 2.5
   lookTarget: {fileID: 2248959}
   Head: {fileID: 2103063454}
@@ -31364,7 +31364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 60
   ATK: 3
-  EnemScore: 13
+  EnemScore: 26
   MoveSpeed: 2
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1722958873}
@@ -36438,7 +36438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 15
   ATK: 1
-  EnemScore: 7
+  EnemScore: 14
   MoveSpeed: 2
   lookTarget: {fileID: 2248959}
   Head: {fileID: 311078443}
