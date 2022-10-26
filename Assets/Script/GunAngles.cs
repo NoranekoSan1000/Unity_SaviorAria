@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GunAngles : MonoBehaviour
 {
+    public bool pistol;
     public AudioClip SE_Reload;
     AudioSource audioSource;
     float Angles;
+    float LAngles;
 
     // Start is called before the first frame update
     void Start()
@@ -17,13 +19,28 @@ public class GunAngles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Angles = this.gameObject.transform.localEulerAngles.x;
-        if (((Angles > 55 && Angles < 90) || Input.GetKeyDown(KeyCode.R)) && !PlayerStatus.Reloading && PlayerStatus.Ammo < PlayerStatus.GunCapacity[PlayerStatus.GunMode])
+        if(!pistol)
         {
-            audioSource.PlayOneShot(SE_Reload);
-            if(PlayerStatus.Ammo < PlayerStatus.GunCapacity[PlayerStatus.GunMode]) PlayerStatus.ReloadTime = 1f;
-            if(PlayerStatus.Ammo <= 0) PlayerStatus.ReloadTime = 1.25f;
-            PlayerStatus.Reloading = true;
+            Angles = this.gameObject.transform.localEulerAngles.x;
+            if (((Angles > 55 && Angles < 90) || Input.GetKeyDown(KeyCode.R)) && !PlayerStatus.Reloading && PlayerStatus.Ammo < PlayerStatus.GunCapacity[PlayerStatus.GunMode])
+            {
+                audioSource.PlayOneShot(SE_Reload);
+                if (PlayerStatus.Ammo < PlayerStatus.GunCapacity[PlayerStatus.GunMode]) PlayerStatus.ReloadTime = 1f;
+                if (PlayerStatus.Ammo <= 0) PlayerStatus.ReloadTime = 1.25f;
+                PlayerStatus.Reloading = true;
+            }
         }
+        else
+        {
+            LAngles = this.gameObject.transform.localEulerAngles.x;
+            if (((LAngles > 55 && LAngles < 90) || Input.GetKeyDown(KeyCode.R)) && !PlayerStatus.LReloading && PlayerStatus.LAmmo < PlayerStatus.GunCapacity[0])
+            {
+                audioSource.PlayOneShot(SE_Reload);
+                if (PlayerStatus.LAmmo < PlayerStatus.GunCapacity[0]) PlayerStatus.LReloadTime = 1f;
+                if (PlayerStatus.LAmmo <= 0) PlayerStatus.LReloadTime = 1.25f;
+                PlayerStatus.LReloading = true;
+            }
+        }
+
     }
 }

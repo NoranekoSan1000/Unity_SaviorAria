@@ -86,15 +86,15 @@ public class Zombie : MonoBehaviour
     public void Jump(float dis)
     {
         if(JumpCT <= 10) JumpCT += Time.deltaTime;
-        if (dis > 8.0f && JumpCT > 3) rb.AddForce(new Vector3(0, 120f, 0)); //ã‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
-        if (JumpCT >3.25f) JumpCT = 0;
+        if (dis > 8.0f && JumpCT > 4) rb.AddForce(new Vector3(0, 110f, 0)); //ã‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
+        if (JumpCT >4.25f) JumpCT = 0;
     }
 
     public void LeftWalk(float dis)
     {
         if (JumpCT <= 10) JumpCT += Time.deltaTime;
-        if (dis > 6.0f && JumpCT < 3) rb.AddForce(new Vector3(4f, 0, 4f)); //‰¡‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
-        if (dis > 6.0f && JumpCT >= 3 && JumpCT < 6) rb.AddForce(new Vector3(-4f, 0, -4f)); //‰¡‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
+        if (dis > 6.0f && JumpCT < 3) rb.AddForce(new Vector3(2.5f, 0, 2.5f)); //‰¡‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
+        if (dis > 6.0f && JumpCT >= 3 && JumpCT < 6) rb.AddForce(new Vector3(-2.5f, 0, -2.5f)); //‰¡‚ÉŒü‚©‚Á‚Ä—Í‚ð‰Á‚¦‚é
         if (JumpCT >= 6) JumpCT = 0;
     }
 

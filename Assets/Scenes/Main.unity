@@ -2611,6 +2611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df25ea1b86251247b872a9b88d918f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CenterEyeAnchor: {fileID: 0}
 --- !u!1 &453719448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,11 +2641,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14887b157fba87e45a63e036b198d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftAmmoText: {fileID: 2146106598}
-  LeftTimeText: {fileID: 1753146328}
+  CapacityText: {fileID: 0}
+  CapacityText3: {fileID: 0}
   ScoreText: {fileID: 1390160957}
-  Zombie: {fileID: 866867731}
-  Spawner: {fileID: 1226857492}
+  PlayerHPText: {fileID: 0}
+  PhaseText: {fileID: 0}
 --- !u!4 &453719450
 Transform:
   m_ObjectHideFlags: 0
@@ -2848,11 +2849,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14887b157fba87e45a63e036b198d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftAmmoText: {fileID: 323010836}
-  LeftTimeText: {fileID: 1789798840}
+  CapacityText: {fileID: 0}
+  CapacityText3: {fileID: 0}
   ScoreText: {fileID: 1662556225}
-  Zombie: {fileID: 866867731}
-  Spawner: {fileID: 1226857492}
+  PlayerHPText: {fileID: 0}
+  PhaseText: {fileID: 0}
 --- !u!4 &643765491
 Transform:
   m_ObjectHideFlags: 0
@@ -3590,7 +3591,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db931b6514a56d46af0531e8a2189d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hp: 0
+  ATK: 0
+  EnemScore: 0
+  MoveSpeed: 0
   lookTarget: {fileID: 587243144}
+  Head: {fileID: 0}
+  Body: {fileID: 0}
 --- !u!54 &866867736
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3723,14 +3730,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 435214421}
-  Bullet: {fileID: 1477624401}
+  Gun: {fileID: 0}
+  ShotBox: {fileID: 0}
   ScopeCamera: {fileID: 62499073}
+  PM_40: {fileID: 0}
   P90: {fileID: 360602586}
+  M4A1: {fileID: 0}
   AWP: {fileID: 346551421}
   SE_Shot: {fileID: 8300000, guid: 13213e3406d6fee4385a210da09ac8f7, type: 3}
   SE_SniperShot: {fileID: 8300000, guid: 722ba05ce92d1724eb3d20b6b182dbdc, type: 3}
+  SE_BoltAction: {fileID: 0}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
-  bulletNUM: 0
 --- !u!82 &893047398
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5332,14 +5342,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 435214421}
-  Bullet: {fileID: 705153847}
+  Gun: {fileID: 0}
+  ShotBox: {fileID: 0}
   ScopeCamera: {fileID: 1352035993}
+  PM_40: {fileID: 0}
   P90: {fileID: 360845437}
+  M4A1: {fileID: 0}
   AWP: {fileID: 1702374684}
   SE_Shot: {fileID: 8300000, guid: 13213e3406d6fee4385a210da09ac8f7, type: 3}
   SE_SniperShot: {fileID: 8300000, guid: 722ba05ce92d1724eb3d20b6b182dbdc, type: 3}
+  SE_BoltAction: {fileID: 0}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
-  bulletNUM: 0
 --- !u!65 &1364236500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6936,6 +6949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6971f5f5b70a4da46844159f8844a513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SE_HeadShot: {fileID: 0}
   Zomb: {fileID: 866867731}
 --- !u!54 &1932144851
 Rigidbody:
@@ -7097,14 +7111,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 435214421}
-  Bullet: {fileID: 862411553}
+  Gun: {fileID: 0}
+  ShotBox: {fileID: 0}
   ScopeCamera: {fileID: 0}
+  PM_40: {fileID: 0}
   P90: {fileID: 0}
+  M4A1: {fileID: 0}
   AWP: {fileID: 0}
   SE_Shot: {fileID: 8300000, guid: 13213e3406d6fee4385a210da09ac8f7, type: 3}
   SE_SniperShot: {fileID: 0}
+  SE_BoltAction: {fileID: 0}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
-  bulletNUM: 1
 --- !u!65 &1948261818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7232,6 +7249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6971f5f5b70a4da46844159f8844a513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SE_HeadShot: {fileID: 0}
   Zomb: {fileID: 866867731}
 --- !u!54 &2059277471
 Rigidbody:

@@ -6,10 +6,10 @@ public class ShotController : MonoBehaviour
 {
     public GameObject Origin_Shot;
     public GameObject Gun;
+    public GameObject GunL;
     public Transform ShotBox;
     public Camera ScopeCamera;
 
-    public GameObject PM_40;
     public GameObject P90;
     public GameObject M4A1;
     public GameObject AWP;
@@ -35,31 +35,35 @@ public class ShotController : MonoBehaviour
     void Update()
     {
         //武器スキン切り替え
-        if (PlayerStatus.GunMode == 0) SkinActive(true,false,false,false);
-        if (PlayerStatus.GunMode == 1) SkinActive(false,true,false,false);
-        if (PlayerStatus.GunMode == 2) SkinActive(false,false,true,false);
-        if (PlayerStatus.GunMode == 3) SkinActive(false,false,false,true);
+        if (PlayerStatus.GunMode == 1) SkinActive(true,false,false);
+        if (PlayerStatus.GunMode == 2) SkinActive(false,true,false);
+        if (PlayerStatus.GunMode == 3) SkinActive(false,false,true);
 
         if (CoolTime > 0) CoolTime -= Time.deltaTime;
 
-        if (PlayerStatus.Ammo > 0 && !PlayerStatus.Reloading)
+        if (PlayerStatus.LAmmo > 0 && !PlayerStatus.LReloading)
         {
-            if (CoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//振動ストップ
+            if (CoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.LTouch);//振動ストップ
 
             //ハンドガン
-            if (PlayerStatus.GunMode == 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
+            if ((OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
-                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
-                SelectShot(1500, 0);
+                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.LTouch);//振動
+                SelectShot(1500, 0, true);
             }
+        }
+
+            if (PlayerStatus.Ammo > 0 && !PlayerStatus.Reloading)
+            {
+            if (CoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//振動ストップ
 
             //サブマシンガン
             if (PlayerStatus.GunMode == 1 && CoolTime <= 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
-                SelectShot(1000, 0.075f);
+                SelectShot(1000, 0.075f, false);
             }
 
             //アサルトライフル
@@ -67,7 +71,7 @@ public class ShotController : MonoBehaviour
             {
                 audioSource.PlayOneShot(SE_Shot);
                 OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
-                SelectShot(1800, 0.12f);
+                SelectShot(1800, 0.12f, false);
             }
 
             //スナイパー
@@ -75,8 +79,8 @@ public class ShotController : MonoBehaviour
             {
                 audioSource.PlayOneShot(SE_SniperShot);
                 OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
-                if(PlayerStatus.Ammo > 1) SelectShot(3000, 5f);
-                else SelectShot(3000, 2f);
+                if(PlayerStatus.Ammo > 1) SelectShot(3000, 5f, false);
+                else SelectShot(3000, 2f,false);
             }
 
             //コッキング効果音
@@ -105,22 +109,33 @@ public class ShotController : MonoBehaviour
         
     }
 
-    public void SkinActive(bool a,bool b,bool c,bool d)
+    public void SkinActive(bool b,bool c,bool d)
     {
-        PM_40.SetActive(a);
         P90.SetActive(b);
         M4A1.SetActive(c);
         AWP.SetActive(d);
     }
 
-    public void SelectShot(int Speed,float CT)
+    public void SelectShot(int Speed, float CT, bool pistol)
     {
         Vector3 force;
-        PlayerStatus.Ammo -= 1;
+        
         GameObject Copy_Shot = Instantiate(Origin_Shot, ShotBox) as GameObject;
         Copy_Shot.tag = "Shot";
-        Copy_Shot.transform.position = Gun.transform.position;
-        force = Gun.transform.forward * Speed;
+        if (!pistol)
+        {
+
+            PlayerStatus.Ammo -= 1;
+            Copy_Shot.transform.position = Gun.transform.position;
+            force = Gun.transform.forward * Speed;
+        }
+        else
+        {
+            Copy_Shot.name = "[Origin]ShotL(Clone)";
+            PlayerStatus.LAmmo -= 1;
+            Copy_Shot.transform.position = GunL.transform.position;
+            force = GunL.transform.forward * Speed;
+        }
         Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
         CoolTime = CT;
     }

@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public static int GunMode = 0;
+    public static int GunMode = 1;
     public static int GamePhase = 1;
     public static int Ammo = 20;
+    public static int LAmmo = 16;
     public static int Score;
     public static int PlayerHP;
     public static int[] GunCapacity = new int[4] { 16, 45, 22, 7 };
-    public static int[] GunDamage = new int[4] { 3, 2, 4, 15 };
+    public static int[] GunDamage = new int[4] { 2, 2, 4, 15 };
 
     public static bool Reloading = false;
     public static float ReloadTime = 0;
-    
+    public static bool LReloading = false;
+    public static float LReloadTime = 0;
+
     public Text CapacityText;
     public Text CapacityText3;
     //public Text LeftTimeText;
@@ -32,13 +35,16 @@ public class PlayerStatus : MonoBehaviour
     void Start()
     {
         FadeController.isFadeIn = true;
-        GunMode = 0;
-        GamePhase = 0;
+        GunMode = 1;
+        GamePhase = 1;
         Score = 0;
         Ammo = 20;
+        LAmmo = 16;
         PlayerHP = 20;
         Reloading = false;
         ReloadTime = 0;
+        LReloading = false;
+        LReloadTime = 0;
         textTime = -2;
 
         PhaseText.text = "";
@@ -74,18 +80,27 @@ public class PlayerStatus : MonoBehaviour
             Reloading = false;
         }
 
+        if (LReloadTime > 0 && LReloading)
+        {
+            LReloadTime -= Time.deltaTime;
+        }
+        if (LReloadTime < 0 && LReloading)
+        {
+            LAmmo = GunCapacity[0];
+            LReloading = false;
+        }
+
         if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch) || Input.GetMouseButtonDown(1))
         {
             Ammo = 0;
             if (GunMode < 3) GunMode++;
-            else GunMode = 0;
+            else GunMode = 1;
         }
 
         if(PlayerHP <= 0)
         {
             FadeController.isFadeOut = true;
-            PlayerHPText.text = "Game Over";
-            
+            PlayerHPText.text = "Game Over";          
         }
 
     }
