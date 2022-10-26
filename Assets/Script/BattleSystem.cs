@@ -41,7 +41,7 @@ public class BattleSystem : MonoBehaviour
 
         //BGM
         audios = GetComponent<AudioSource>();
-        audios.clip = BGM[PlayerStatus.GunMode];
+        audios.clip = BGM[PhaseBGM];
         audios.Play();    
     }
 

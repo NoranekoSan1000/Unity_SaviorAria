@@ -21,6 +21,8 @@ public class PlayerStatus : MonoBehaviour
 
     public Text CapacityText;
     public Text CapacityText3;
+    public Text CapacityTextL;
+    public Text CapacityTextL3;
     //public Text LeftTimeText;
 
     public Text ScoreText;
@@ -38,7 +40,7 @@ public class PlayerStatus : MonoBehaviour
         GunMode = 1;
         GamePhase = 1;
         Score = 0;
-        Ammo = 20;
+        Ammo = 45;
         LAmmo = 16;
         PlayerHP = 20;
         Reloading = false;
@@ -64,10 +66,13 @@ public class PlayerStatus : MonoBehaviour
         //Phase表示
         DispPhaseText();
 
-        CapacityText.text =": "+ Ammo;
+        CapacityText.text =""+ Ammo;
+        CapacityTextL.text = "" + LAmmo;
 
         CapacityText3.text = "";
         for(int i=0;i< Ammo;i++) CapacityText3.text += 'l';
+        CapacityTextL3.text = "";
+        for (int i = 0; i < LAmmo; i++) CapacityTextL3.text += 'l';
 
         //リロード：GunAngles.csによって管理
         if (ReloadTime > 0 && Reloading)
