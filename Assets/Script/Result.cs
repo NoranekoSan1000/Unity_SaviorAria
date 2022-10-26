@@ -31,6 +31,8 @@ public class Result : MonoBehaviour
         ScoretextTime = -2;
         EndText.text = "";
 
+        PlayerStatus.Score += 1000 * PlayerStatus.PlayerHP;
+
         ScoreManager.FirstStart = true;
         //ƒ‰ƒ“ƒLƒ“ƒO
         for (int i = 0; i < 9; i++)

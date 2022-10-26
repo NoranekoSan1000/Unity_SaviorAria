@@ -40,21 +40,19 @@ public class Zombie : MonoBehaviour
         Vector3 CenterPos = lookTarget.transform.position;
         float dis = Vector3.Distance(MyPos, CenterPos);
 
-        //中央を向くプログラム
-        LookCenter();
-
-        //歩いてくるプログラム
-        walkEnemy(dis);
-
-        //ジャンプ
-        if (this.gameObject.name == "[Origin]Ghoul(Clone)" || this.gameObject.name == "[Origin]UltGhoul(Clone)") Jump(dis);
-
-        //横歩き
-        if (this.gameObject.name == "[Origin]Giant(Clone)" || this.gameObject.name == "[Origin]UltGiant(Clone)") LeftWalk(dis);
-
-        //攻撃プログラム
-        EnemAttack(dis);
-
+        if(Hp > 0)
+        {
+            //中央を向くプログラム
+            LookCenter();
+            //歩いてくるプログラム
+            walkEnemy(dis);
+            //ジャンプ
+            if (this.gameObject.name == "[Origin]Ghoul(Clone)" || this.gameObject.name == "[Origin]UltGhoul(Clone)") Jump(dis);
+            //横歩き
+            if (this.gameObject.name == "[Origin]Giant(Clone)" || this.gameObject.name == "[Origin]UltGiant(Clone)") LeftWalk(dis);
+            //攻撃プログラム
+            EnemAttack(dis);
+        }
         //死亡時
         die();
     }
@@ -86,15 +84,15 @@ public class Zombie : MonoBehaviour
     public void Jump(float dis)
     {
         if(JumpCT <= 10) JumpCT += Time.deltaTime;
-        if (dis > 8.0f && JumpCT > 4) rb.AddForce(new Vector3(0, 110f, 0)); //上に向かって力を加える
-        if (JumpCT >4.25f) JumpCT = 0;
+        if (dis > 10.0f && JumpCT > 5) rb.AddForce(new Vector3(0, 100f, 0)); //上に向かって力を加える
+        if (JumpCT >5.25f) JumpCT = 0;
     }
 
     public void LeftWalk(float dis)
     {
         if (JumpCT <= 10) JumpCT += Time.deltaTime;
-        if (dis > 6.0f && JumpCT < 3) rb.AddForce(new Vector3(2.5f, 0, 2.5f)); //横に向かって力を加える
-        if (dis > 6.0f && JumpCT >= 3 && JumpCT < 6) rb.AddForce(new Vector3(-2.5f, 0, -2.5f)); //横に向かって力を加える
+        if (dis > 8.0f && JumpCT < 3) rb.AddForce(new Vector3(3, 0, 3)); //横に向かって力を加える
+        if (dis > 8.0f && JumpCT >= 3 && JumpCT < 6) rb.AddForce(new Vector3(-3, 0, -3)); //横に向かって力を加える
         if (JumpCT >= 6) JumpCT = 0;
     }
 
@@ -128,9 +126,9 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    public int HitShot(int Damage)
+    public int HitShot(float Damage)
     {
-        Hp -= Damage * PlayerStatus.GunDamage[PlayerStatus.GunMode];
+        Hp -= (int)(Damage * PlayerStatus.GunDamage[PlayerStatus.GunMode]);
         return Hp;
     }
 

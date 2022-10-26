@@ -21,6 +21,7 @@ public class ShotController : MonoBehaviour
     AudioSource audioSource;
 
     float CoolTime=0;
+    float LCoolTime = 0;
 
     float[] Focus = new float[5] { 60.5f, 20.5f, 5.5f, 1.5f, 0.7f };
     int scopemode = 0;
@@ -40,17 +41,18 @@ public class ShotController : MonoBehaviour
         if (PlayerStatus.GunMode == 3) SkinActive(false,false,true);
 
         if (CoolTime > 0) CoolTime -= Time.deltaTime;
+        if (LCoolTime > 0) LCoolTime -= Time.deltaTime;
 
         if (PlayerStatus.LAmmo > 0 && !PlayerStatus.LReloading)
         {
-            if (CoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.LTouch);//振動ストップ
+            if (LCoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.LTouch);//振動ストップ
 
             //ハンドガン
             if ((OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.LTouch);//振動
-                SelectShot(1500, 0, true);
+                SelectShot(2000, 0, true);
             }
         }
 
@@ -63,7 +65,7 @@ public class ShotController : MonoBehaviour
             {
                 audioSource.PlayOneShot(SE_Shot);
                 OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
-                SelectShot(1000, 0.075f, false);
+                SelectShot(2000, 0.075f, false);
             }
 
             //アサルトライフル
@@ -71,7 +73,7 @@ public class ShotController : MonoBehaviour
             {
                 audioSource.PlayOneShot(SE_Shot);
                 OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
-                SelectShot(1800, 0.12f, false);
+                SelectShot(2500, 0.12f, false);
             }
 
             //スナイパー
@@ -88,7 +90,7 @@ public class ShotController : MonoBehaviour
             {
                 audioSource.PlayOneShot(SE_BoltAction);
                 OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//振動ストップ
-                CoolTime = 1.0f;
+                CoolTime = 0.5f;
             }
 
             //スコープ拡大
@@ -128,6 +130,7 @@ public class ShotController : MonoBehaviour
             PlayerStatus.Ammo -= 1;
             Copy_Shot.transform.position = Gun.transform.position;
             force = Gun.transform.forward * Speed;
+            CoolTime = CT;
         }
         else
         {
@@ -135,9 +138,10 @@ public class ShotController : MonoBehaviour
             PlayerStatus.LAmmo -= 1;
             Copy_Shot.transform.position = GunL.transform.position;
             force = GunL.transform.forward * Speed;
+            LCoolTime = CT;
         }
         Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
-        CoolTime = CT;
+        
     }
 
 }

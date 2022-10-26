@@ -370,28 +370,43 @@ public class BattleSystem : MonoBehaviour
         if (spawnCount == 0 && SpawnCoolTime <= 0)
         {
             EnemSpawn(1, 7);
-            EnemSpawn(3, 0);
-            EnemSpawn(3, 2);
             spawnCount += 1;
             SpawnCoolTime = 5;
         }
         if (spawnCount == 1 && SpawnCoolTime <= 0)
         {
-            EnemSpawn(1, 10);
-            EnemSpawn(3, 3);
-            EnemSpawn(3, 5);
+            EnemSpawn(3, 0);
+            EnemSpawn(3, 2);
             spawnCount += 1;
             SpawnCoolTime = 5;
         }
         if (spawnCount == 2 && SpawnCoolTime <= 0)
         {
-            EnemSpawn(3, 6);
+            EnemSpawn(1, 10);
+            spawnCount += 1;
+            SpawnCoolTime = 5;
+        }
+        if (spawnCount == 3 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(3, 3);
+            EnemSpawn(3, 5);
+            spawnCount += 1;
+            SpawnCoolTime = 5;
+        }
+        if (spawnCount == 4 && SpawnCoolTime <= 0)
+        {
             EnemSpawn(2, 1);
+            spawnCount += 1;
+            SpawnCoolTime = 6;
+        }
+        if (spawnCount == 5 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(3, 6);
             EnemSpawn(3, 8);
             spawnCount += 1;
             SpawnCoolTime = 6;
         }
-        if (spawnCount == 3 && SpawnCoolTime <= 0)
+        if (spawnCount == 6 && SpawnCoolTime <= 0)
         {
             EnemSpawn(3, 9);
             EnemSpawn(2, 4);
@@ -400,7 +415,7 @@ public class BattleSystem : MonoBehaviour
             SpawnCoolTime = 2;
         }
         //‘S‚Ä‚Ì“GŽ€–SŒã
-        if (spawnCount == 4 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
+        if (spawnCount == 7 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
     }
     void Phase10()
     {
@@ -410,7 +425,7 @@ public class BattleSystem : MonoBehaviour
             EnemSpawn(1, 2);
             EnemSpawn(1, 8);
             spawnCount += 1;
-            SpawnCoolTime = 4;
+            SpawnCoolTime = 6;
         }
         if (spawnCount == 1 && SpawnCoolTime <= 0)
         {
@@ -423,7 +438,7 @@ public class BattleSystem : MonoBehaviour
         {
             EnemSpawn(4, 1);
             spawnCount += 1;
-            SpawnCoolTime = 2;
+            SpawnCoolTime = 6;
         }
         if (spawnCount == 3 && SpawnCoolTime <= 0)
         {
@@ -446,21 +461,53 @@ public class BattleSystem : MonoBehaviour
         SetSmoke(false, false, false, false);
         if (spawnCount == 0 && SpawnCoolTime <= 0)
         {
+            for (int i = 0; i < 12; i += 3) EnemSpawn(1, i);
+            EnemSpawn(2, 1);
+            spawnCount += 1;
+            SpawnCoolTime = 8;
+        }
+        if (spawnCount == 1 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(4, 7);
+            spawnCount += 1;
+            SpawnCoolTime = 8;
+        }
+        if (spawnCount == 2 && SpawnCoolTime <= 0)
+        {
+            for (int i = 0; i < 12; i += 3) EnemSpawn(1, i);
+            EnemSpawn(2, 1);
+            spawnCount += 1;
+            SpawnCoolTime = 8;
+        }
+        if (spawnCount == 3 && SpawnCoolTime <= 0)
+        {
+            EnemSpawn(4, 7);
+            spawnCount += 1;
+            SpawnCoolTime = 3;
+        }
+        //‘S‚Ä‚Ì“GŽ€–SŒã
+        if (spawnCount == 4 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
+    }
+    void Phase12()
+    {
+        SetSmoke(false, false, false, false);
+        if (spawnCount == 0 && SpawnCoolTime <= 0)
+        {
             EnemSpawn(3, 1);
             spawnCount += 1;
-            SpawnCoolTime = 2;
+            SpawnCoolTime = 3;
         }
         if (spawnCount == 1 && SpawnCoolTime <= 0)
         {
             EnemSpawn(3, 4);
             spawnCount += 1;
-            SpawnCoolTime = 2;
+            SpawnCoolTime = 3;
         }
         if (spawnCount == 2 && SpawnCoolTime <= 0)
         {
             EnemSpawn(3, 7);
             spawnCount += 1;
-            SpawnCoolTime = 2;
+            SpawnCoolTime = 3;
         }
         if (spawnCount == 3 && SpawnCoolTime <= 0)
         {
@@ -473,14 +520,14 @@ public class BattleSystem : MonoBehaviour
             for (int i = 0; i < 12; i += 3) EnemSpawn(3, i);
             EnemSpawn(4, 1);
             spawnCount += 1;
-            SpawnCoolTime = 3;
+            SpawnCoolTime = 5;
         }
         if (spawnCount == 5 && SpawnCoolTime <= 0)
         {
             for (int i = 2; i < 12; i += 3) EnemSpawn(3, i);
             EnemSpawn(4, 4);
             spawnCount += 1;
-            SpawnCoolTime = 3;
+            SpawnCoolTime = 5;
         }
         if (spawnCount == 6 && SpawnCoolTime <= 0)
         {
@@ -496,40 +543,6 @@ public class BattleSystem : MonoBehaviour
         }
         //‘S‚Ä‚Ì“GŽ€–SŒã
         if (spawnCount == 8 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
-    }
-    void Phase12()
-    {
-        SetSmoke(true, false, false, false);
-        if (spawnCount == 0 && SpawnCoolTime <= 0)
-        {
-            for (int i = 0; i < 12; i += 3) EnemSpawn(1, i);
-            EnemSpawn(2, 1);
-            spawnCount += 1;
-            SpawnCoolTime = 6;
-        }
-        if (spawnCount == 1 && SpawnCoolTime <= 0)
-        {
-            for (int i = 2; i < 12; i += 3) EnemSpawn(4, i);
-            EnemSpawn(4, 7);
-            spawnCount += 1;
-            SpawnCoolTime = 6;
-        }
-        if (spawnCount == 2 && SpawnCoolTime <= 0)
-        {
-            for (int i = 0; i < 12; i += 3) EnemSpawn(1, i);
-            EnemSpawn(2, 1);
-            spawnCount += 1;
-            SpawnCoolTime = 6;
-        }
-        if (spawnCount == 3 && SpawnCoolTime <= 0)
-        {
-            for (int i = 2; i < 12; i += 3) EnemSpawn(4, i);
-            EnemSpawn(4, 7);
-            spawnCount += 1;
-            SpawnCoolTime = 3;
-        }
-        //‘S‚Ä‚Ì“GŽ€–SŒã
-        if (spawnCount == 4 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
     }
     void Phase13()
     {
@@ -575,7 +588,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         //‘S‚Ä‚Ì“GŽ€–SŒã
-        if (spawnCount == 8 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
+        if (spawnCount == 6 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
     }
     void Phase14()
     {
@@ -621,7 +634,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         //‘S‚Ä‚Ì“GŽ€–SŒã
-        if (spawnCount == 8 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
+        if (spawnCount == 6 && SpawnCoolTime <= 0 && EnemyAmount == 0) GameChanger = true;
     }
     void Phase15()
     {

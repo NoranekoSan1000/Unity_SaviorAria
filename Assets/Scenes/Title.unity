@@ -9600,9 +9600,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 1484640912}
   Gun: {fileID: 0}
+  GunL: {fileID: 0}
   ShotBox: {fileID: 0}
   ScopeCamera: {fileID: 0}
-  PM_40: {fileID: 0}
   P90: {fileID: 0}
   M4A1: {fileID: 0}
   AWP: {fileID: 0}
@@ -9677,6 +9677,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 104802, guid: bd3b513fc9331a940909e770957f1074,
     type: 3}
   m_PrefabInstance: {fileID: 365417711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &862880555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 168962, guid: ce816f2e6abb0504092c23ed9b970dfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1307956083}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &932367946
 GameObject:
@@ -11611,7 +11617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.87
+      value: -4.18
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12543,7 +12549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df25ea1b86251247b872a9b88d918f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CenterEyeAnchor: {fileID: 1638661047}
+  LeftHandAnchor: {fileID: 862880555}
+  RightHandAnchor: {fileID: 1638661047}
 --- !u!54 &1484640914
 Rigidbody:
   m_ObjectHideFlags: 0

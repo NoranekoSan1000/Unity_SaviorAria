@@ -33,7 +33,7 @@ public class ZombieHit : MonoBehaviour
             {
                 HeadHit = true;
                 audioSource.PlayOneShot(SE_HeadShot);
-                ThisHp = Zomb.GetComponent<Zombie>().HitShot(2);
+                ThisHp = Zomb.GetComponent<Zombie>().HitShot(1.5f);
                 HeadHit = false;
             }
             if (this.gameObject.tag == "ZombieBody" && !BodyHit)

@@ -317,7 +317,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 200
+    m_FontSize: 130
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -834,9 +834,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 153423683}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &259548591 stripped
+--- !u!1 &164746740 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100012, guid: ce816f2e6abb0504092c23ed9b970dfd,
+  m_CorrespondingSourceObject: {fileID: 168962, guid: ce816f2e6abb0504092c23ed9b970dfd,
     type: 3}
   m_PrefabInstance: {fileID: 1485152338}
   m_PrefabAsset: {fileID: 0}
@@ -2147,7 +2147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -415}
+  m_AnchoredPosition: {x: 0, y: -303}
   m_SizeDelta: {x: 2000, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &662910729
@@ -2172,7 +2172,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 75
+    m_FontSize: 70
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -4805,9 +4805,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 0}
   Gun: {fileID: 0}
+  GunL: {fileID: 0}
   ShotBox: {fileID: 0}
   ScopeCamera: {fileID: 0}
-  PM_40: {fileID: 0}
   P90: {fileID: 0}
   M4A1: {fileID: 0}
   AWP: {fileID: 0}
@@ -5265,7 +5265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 570}
+  m_AnchoredPosition: {x: 0, y: 309}
   m_SizeDelta: {x: 2000, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1275146395
@@ -5290,12 +5290,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 200
+    m_FontSize: 150
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 200
-    m_Alignment: 1
+    m_Alignment: 7
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5724,7 +5724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df25ea1b86251247b872a9b88d918f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CenterEyeAnchor: {fileID: 259548591}
+  LeftHandAnchor: {fileID: 164746740}
+  RightHandAnchor: {fileID: 1485152343}
 --- !u!54 &1327374527
 Rigidbody:
   m_ObjectHideFlags: 0

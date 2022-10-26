@@ -10,7 +10,7 @@ public class ShotStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this .gameObject.name == "[Origin]ShotL(Clone)")this.gameObject.transform.localEulerAngles = LeftHandAnchor.transform.localEulerAngles;
+        if(this .gameObject.name == "[Origin]ShotL(Clone)") this.gameObject.transform.localEulerAngles = LeftHandAnchor.transform.localEulerAngles;
         else this.gameObject.transform.localEulerAngles = RightHandAnchor.transform.localEulerAngles;
 
         if (this.gameObject.tag == "Shot")//origin‚É‚Í‰e‹¿‚ð—^‚¦‚È‚¢
