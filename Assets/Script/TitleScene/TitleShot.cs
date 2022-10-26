@@ -30,7 +30,7 @@ public class TitleShot : MonoBehaviour
         {
             if (CoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//U“®ƒXƒgƒbƒv
             //ƒnƒ“ƒhƒKƒ“
-            if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
+            if ((OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(2)))
             {
                 audioSource.PlayOneShot(SE_Shot);
                 OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//U“®

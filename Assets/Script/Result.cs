@@ -42,7 +42,9 @@ public class Result : MonoBehaviour
                 for (int j = 7; j >= i; j--)
                 {
                     ScoreManager.Ranking[j + 1] = ScoreManager.Ranking[j];
+                    ScoreManager.Name[j + 1] = ScoreManager.Name[j];
                 }
+                ScoreManager.Name[i] = TitleStatus.InputName; 
                 ScoreManager.Ranking[i] = PlayerStatus.Score;
                 break;
             }
