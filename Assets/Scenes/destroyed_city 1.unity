@@ -1664,7 +1664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &195612246
 Transform:
   m_ObjectHideFlags: 0
@@ -3688,7 +3688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &505214429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25824,7 +25824,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 134650, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_IsActive
@@ -29089,7 +29089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Origin_Shot: {fileID: 1484640912}
   Gun: {fileID: 1383596228}
-  GunL: {fileID: 0}
+  GunL: {fileID: 1383596228}
   ShotBox: {fileID: 1695387396}
   ScopeCamera: {fileID: 879143574}
   P90: {fileID: 1272747811}
@@ -39332,8 +39332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CapacityText: {fileID: 1011214649}
   CapacityText3: {fileID: 1388779125}
-  CapacityTextL: {fileID: 0}
-  CapacityTextL3: {fileID: 0}
+  CapacityTextL: {fileID: 1011214649}
+  CapacityTextL3: {fileID: 1388779125}
   ScoreText: {fileID: 832070955}
   PlayerHPText: {fileID: 318016872}
   PhaseText: {fileID: 190493153}

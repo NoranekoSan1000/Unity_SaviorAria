@@ -22,7 +22,7 @@ public class TitleStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InputName = "-----";
+        InputName = "NONAME";
         OKButton = false;
         GameStart = false;
         Wait = 0;
@@ -46,19 +46,18 @@ public class TitleStatus : MonoBehaviour
             if (Wait2 >= 0.75f) FadeController.isFadeOut = true;
             if (Wait2 >= 3) Application.Quit();//èIóπ
         }
-        
-        if(OKButton)
-        {
-            InputName = InpName.text;
-            NameButton.SetActive(false);
-            NameTextField.SetActive(false);
-        }
+
 
     }
 
     public void ClickOKButton()
     {
         OKButton = true;
+        InputName = InpName.text;
+        NameButton.SetActive(false);
+        NameTextField.SetActive(false);
+
+        Debug.Log(InputName);
     }
 
 

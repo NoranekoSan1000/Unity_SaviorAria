@@ -65,15 +65,15 @@ public class ScoreManager : MonoBehaviour
         SavePlayCount = PlayCount;
 
         PlayCountText.text = "Gameplayed : " + SavePlayCount;
-        score_text[0].text = "1st : " + SaveName[0] + " " + SaveRanking[0] + "\n  " ;
-        score_text[1].text = "2nd : " + SaveName[1] + " " + SaveRanking[1] + "\n  " ;
-        score_text[2].text = "3rd : " + SaveName[2] + " " + SaveRanking[2] + "\n  " ;
-        score_text[3].text = "4th : " + SaveName[3] + " " + SaveRanking[3] + "\n  " ;
-        score_text[4].text = "5th : " + SaveName[4] + " " + SaveRanking[4] + "\n  " ;
-        score_text[5].text = "6th : " + SaveName[5] + " " + SaveRanking[5] + "\n  ";
-        score_text[6].text = "7th : " + SaveName[6] + " " + SaveRanking[6] + "\n  ";
-        score_text[7].text = "8th : " + SaveName[7] + " " + SaveRanking[7] + "\n  ";
-        score_text[8].text = "9th : " + SaveName[8] + " " + SaveRanking[8] + "\n  ";
+        score_text[0].text = "1st: " + SaveName[0] + "Åy" + SaveRanking[0] + "Åz" ;
+        score_text[1].text = "2nd: " + SaveName[1] + "Åy" + SaveRanking[1] + "Åz" ;
+        score_text[2].text = "3rd: " + SaveName[2] + "Åy" + SaveRanking[2] + "Åz" ;
+        score_text[3].text = "4th: " + SaveName[3] + "Åy" + SaveRanking[3] + "Åz" ;
+        score_text[4].text = "5th: " + SaveName[4] + "Åy" + SaveRanking[4] + "Åz" ;
+        score_text[5].text = "6th: " + SaveName[5] + "Åy" + SaveRanking[5] + "Åz" ;
+        score_text[6].text = "7th: " + SaveName[6] + "Åy" + SaveRanking[6] + "Åz" ;
+        score_text[7].text = "8th: " + SaveName[7] + "Åy" + SaveRanking[7] + "Åz" ;
+        score_text[8].text = "9th: " + SaveName[8] + "Åy" + SaveRanking[8] + "Åz" ;
 
     }
 }

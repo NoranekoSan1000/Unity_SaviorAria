@@ -31,7 +31,7 @@ public class Result : MonoBehaviour
         ScoretextTime = -2;
         EndText.text = "";
 
-        PlayerStatus.Score += 1000 * PlayerStatus.PlayerHP;
+        if(PlayerStatus.PlayerHP > 0) PlayerStatus.Score += 1000 * PlayerStatus.PlayerHP;
 
         ScoreManager.FirstStart = true;
         //ƒ‰ƒ“ƒLƒ“ƒO
