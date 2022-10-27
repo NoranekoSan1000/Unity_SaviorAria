@@ -19,6 +19,7 @@ public class BattleSystem : MonoBehaviour
     float SpawnCoolTime = 3;
 
     public GameObject[] AreaSmoke = new GameObject[4];
+    public GameObject RedSmoke;
 
     public bool GameChanger;//phase切り替わりのタイミング
     int spawnCount = 0;//敵出現タイミング
@@ -48,6 +49,7 @@ public class BattleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerStatus.GamePhase > 8) RedSmoke.SetActive(true);
         SpawnCoolTime -= Time.deltaTime;
 
         if (PlayerStatus.GamePhase == 1) Phase1();

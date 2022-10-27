@@ -11,7 +11,7 @@ public class PlayerStatus : MonoBehaviour
     public static int LAmmo = 16;
     public static int Score;
     public static int PlayerHP;
-    public static int[] GunCapacity = new int[4] { 19, 45, 28, 9 };
+    public static int[] GunCapacity = new int[4] { 19, 44, 29, 9 };
     public static int[] GunDamage = new int[4] { 3, 4, 6, 19 };
 
     public static bool Reloading = false;
@@ -40,8 +40,8 @@ public class PlayerStatus : MonoBehaviour
         GunMode = 1;
         GamePhase = 1;//1
         Score = 0;
-        Ammo = 45;
-        LAmmo = 16;
+        Ammo = 44;
+        LAmmo = 19;
         PlayerHP = 20;
         Reloading = false;
         ReloadTime = 0;

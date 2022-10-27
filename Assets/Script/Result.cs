@@ -12,8 +12,11 @@ public class Result : MonoBehaviour
     public GameObject RedPanel;
     public Text GameOverorClear;
     public Text ResultScoreText;
+    public Text NextText;
     public Text EndText;
     public static float ScoretextTime = -2;
+    float EndTime = 0;
+    bool end;
     char[] phaseChar = new char[7] { ' ', 'S', 'c', 'o', 'r', 'e', ' ' };
 
     int[] ScoreD = new int[6];
@@ -21,6 +24,7 @@ public class Result : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FadeController.isFadeIn = true;
         //BGM
         audios = GetComponent<AudioSource>();      
         if (PlayerStatus.GamePhase >= 17) audios.clip = BGM[1];//clear
@@ -29,9 +33,11 @@ public class Result : MonoBehaviour
 
         ResultScoreText.text = "";
         ScoretextTime = -2;
+        EndTime = 0;
+        end = false;
+        NextText.text = "";
         EndText.text = "";
-
-        if(PlayerStatus.PlayerHP > 0) PlayerStatus.Score += 1000 * PlayerStatus.PlayerHP;
+        if (PlayerStatus.PlayerHP > 0) PlayerStatus.Score += 1000 * PlayerStatus.PlayerHP;
 
         ScoreManager.FirstStart = true;
         //ランキング
@@ -83,7 +89,21 @@ public class Result : MonoBehaviour
         if (ScoretextTime > 1.44f) ResultScoreText.text = "  Score  " + ScoreD[0] + "" + ScoreD[1] + "" + ScoreD[2] + "" + ScoreD[3] + "" + ScoreD[4];
         if (ScoretextTime > 1.56f) ResultScoreText.text = "  Score  " + ScoreD[0] + "" + ScoreD[1] + "" + ScoreD[2] + "" + ScoreD[3] + "" + ScoreD[4] + "" + ScoreD[5];
 
-        if (ScoretextTime > 4f) EndText.text = "-　トリガーを引いて終了　-";
-        if (ScoretextTime > 4.2f && (Input.GetKeyDown(KeyCode.A) || (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger)))) SceneManager.LoadScene(0);
+        if (ScoretextTime > 4f) NextText.text = "-　トリガーを引いて終了　-";
+        if (ScoretextTime > 4.2f && (Input.GetKeyDown(KeyCode.A) || (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))))
+        {
+            FadeController.isFadeOut = true;
+            end = true;
+        }
+
+        if(end) EndGame();
+    }
+    public void EndGame()
+    {
+        EndTime += Time.deltaTime;
+        if (EndTime > 3) EndText.text = "BGM\n\nM-ART";
+        if (EndTime > 6) EndText.text = "制作\n\nNoranekoFelician";
+        if (EndTime > 9) EndText.text = "";
+        if (EndTime > 10) SceneManager.LoadScene(0);
     }
 }
