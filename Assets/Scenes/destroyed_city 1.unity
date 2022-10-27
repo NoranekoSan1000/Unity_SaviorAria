@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1500966893}
-  m_IndirectSpecularColor: {r: 0.06362675, g: 0.05208992, b: 0.056752313, a: 1}
+  m_IndirectSpecularColor: {r: 0.06362773, g: 0.052088402, b: 0.056750655, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -3291,7 +3291,7 @@ MonoBehaviour:
   Hp: 75
   ATK: 3
   EnemScore: 420
-  MoveSpeed: 2.5
+  MoveSpeed: 2.75
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1808465460}
   Body: {fileID: 1236947037}
@@ -32040,7 +32040,7 @@ MonoBehaviour:
   Hp: 60
   ATK: 2
   EnemScore: 260
-  MoveSpeed: 2
+  MoveSpeed: 2.25
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1722958873}
   Body: {fileID: 1635192774}
