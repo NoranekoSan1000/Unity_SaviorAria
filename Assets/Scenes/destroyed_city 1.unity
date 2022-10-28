@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1862918257}
 --- !u!136 &51246470
 CapsuleCollider:
@@ -903,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1015466081}
 --- !u!136 &107555825
 CapsuleCollider:
@@ -2340,6 +2342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1862918257}
 --- !u!136 &311078447
 CapsuleCollider:
@@ -4338,6 +4341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 0}
   Zomb: {fileID: 1862918257}
 --- !u!1 &587171785
 GameObject:
@@ -25239,6 +25243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 459624495}
 --- !u!136 &1236947041
 CapsuleCollider:
@@ -25509,6 +25514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1213766905}
 --- !u!136 &1247357208
 CapsuleCollider:
@@ -26171,6 +26177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1527065765}
 --- !u!136 &1308999590
 CapsuleCollider:
@@ -29893,6 +29900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1833155083}
 --- !u!136 &1635192778
 CapsuleCollider:
@@ -30945,6 +30953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1833155083}
 --- !u!136 &1722958877
 CapsuleCollider:
@@ -31871,6 +31880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 459624495}
 --- !u!136 &1808465464
 CapsuleCollider:
@@ -37936,6 +37946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1015466081}
 --- !u!136 &1960354038
 CapsuleCollider:
@@ -38110,6 +38121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1213766905}
 --- !u!136 &1980428286
 CapsuleCollider:
@@ -44009,6 +44021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SE_HeadShot: {fileID: 8300000, guid: 15100f82fb8f99f41b2befc60de78930, type: 3}
+  SE_BodyShot: {fileID: 8300000, guid: ebd3bca4d444b06499a0616c9a01b1cc, type: 3}
   Zomb: {fileID: 1527065765}
 --- !u!136 &2103063459
 CapsuleCollider:
