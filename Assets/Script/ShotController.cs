@@ -18,6 +18,7 @@ public class ShotController : MonoBehaviour
     public AudioClip SE_SniperShot;
     public AudioClip SE_BoltAction;
     public AudioClip SE_NoAmmo;
+    public AudioClip SE_Damage;
     AudioSource audioSource;
 
     float CoolTime=0;
@@ -45,26 +46,22 @@ public class ShotController : MonoBehaviour
 
         if (PlayerStatus.LAmmo > 0 && !PlayerStatus.LReloading)
         {
-            if (LCoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.LTouch);//振動ストップ
 
             //ハンドガン
             if ((OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
-                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.LTouch);//振動
                 SelectShot(2000, 0, true);
             }
         }
 
             if (PlayerStatus.Ammo > 0 && !PlayerStatus.Reloading)
             {
-            if (CoolTime <= 0) OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//振動ストップ
 
             //サブマシンガン
             if (PlayerStatus.GunMode == 1 && CoolTime <= 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
-                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
                 SelectShot(2000, 0.075f, false);
             }
 
@@ -72,7 +69,6 @@ public class ShotController : MonoBehaviour
             if ( PlayerStatus.GunMode == 2 && CoolTime <= 0 && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButton(0)))
             {
                 audioSource.PlayOneShot(SE_Shot);
-                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
                 SelectShot(2500, 0.12f, false);
             }
 
@@ -80,7 +76,6 @@ public class ShotController : MonoBehaviour
             if (PlayerStatus.GunMode == 3 && CoolTime <= 0 && (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) || Input.GetMouseButtonDown(0)))
             {
                 audioSource.PlayOneShot(SE_SniperShot);
-                OVRInput.SetControllerVibration(1f, 0.3f, OVRInput.Controller.RTouch);//振動
                 if(PlayerStatus.Ammo > 1) SelectShot(3000, 5f, false);
                 else SelectShot(3000, 2f,false);
             }
@@ -89,7 +84,6 @@ public class ShotController : MonoBehaviour
             if (CoolTime <= 4.8f && CoolTime > 3.5f)
             {
                 audioSource.PlayOneShot(SE_BoltAction);
-                OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);//振動ストップ
                 CoolTime = 0.5f;
             }
 
@@ -142,6 +136,11 @@ public class ShotController : MonoBehaviour
         }
         Copy_Shot.GetComponent<Rigidbody>().AddForce(force);
         
+    }
+
+    public void Damage()
+    {
+        audioSource.PlayOneShot(SE_Damage);
     }
 
 }

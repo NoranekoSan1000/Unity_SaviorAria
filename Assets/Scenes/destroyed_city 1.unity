@@ -3298,6 +3298,7 @@ MonoBehaviour:
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1808465460}
   Body: {fileID: 1236947037}
+  SController: {fileID: 749773099}
 --- !u!82 &459624498
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10702,6 +10703,7 @@ MonoBehaviour:
   SE_SniperShot: {fileID: 8300000, guid: 722ba05ce92d1724eb3d20b6b182dbdc, type: 3}
   SE_BoltAction: {fileID: 8300000, guid: 310359dd37f9c7c488cc9f3c1e0cfaf8, type: 3}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
+  SE_Damage: {fileID: 8300000, guid: 601e8399817029943920141db7221626, type: 3}
 --- !u!65 &749773103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13387,6 +13389,7 @@ MonoBehaviour:
   lookTarget: {fileID: 2248959}
   Head: {fileID: 107555821}
   Body: {fileID: 1960354034}
+  SController: {fileID: 749773099}
 --- !u!95 &1015466084
 Animator:
   serializedVersion: 3
@@ -15141,6 +15144,7 @@ MonoBehaviour:
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1980428282}
   Body: {fileID: 1247357204}
+  SController: {fileID: 749773099}
 --- !u!82 &1213766907
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28275,6 +28279,7 @@ MonoBehaviour:
   lookTarget: {fileID: 2248959}
   Head: {fileID: 2103063454}
   Body: {fileID: 1308999585}
+  SController: {fileID: 749773099}
 --- !u!82 &1527065767
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29202,6 +29207,7 @@ MonoBehaviour:
   SE_SniperShot: {fileID: 8300000, guid: 722ba05ce92d1724eb3d20b6b182dbdc, type: 3}
   SE_BoltAction: {fileID: 8300000, guid: 310359dd37f9c7c488cc9f3c1e0cfaf8, type: 3}
   SE_NoAmmo: {fileID: 8300000, guid: 1255f489531f38c4c8331c6462871303, type: 3}
+  SE_Damage: {fileID: 0}
 --- !u!65 &1570131647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32054,6 +32060,7 @@ MonoBehaviour:
   lookTarget: {fileID: 2248959}
   Head: {fileID: 1722958873}
   Body: {fileID: 1635192774}
+  SController: {fileID: 749773099}
 --- !u!82 &1833155086
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37128,6 +37135,7 @@ MonoBehaviour:
   lookTarget: {fileID: 2248959}
   Head: {fileID: 311078443}
   Body: {fileID: 51246466}
+  SController: {fileID: 749773099}
 --- !u!82 &1862918259
 AudioSource:
   m_ObjectHideFlags: 0

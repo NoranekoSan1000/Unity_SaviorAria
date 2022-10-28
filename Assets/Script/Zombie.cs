@@ -24,7 +24,7 @@ public class Zombie : MonoBehaviour
     float CenterCoolTime = 2;
     float JumpCT=0;
 
-
+    public GameObject SController;
 
     // Start is called before the first frame update
     void Start()
@@ -103,6 +103,7 @@ public class Zombie : MonoBehaviour
             PlayerDamageCT -= Time.deltaTime;            
             if(PlayerDamageCT <= 0)
             {
+                SController.GetComponent<ShotController>().Damage();
                 PlayerStatus.PlayerHP -= ATK;
                 anim.SetBool("Attack", true);
                 PlayerDamageCT = 3;
