@@ -653,12 +653,14 @@ public class BattleSystem : MonoBehaviour
         }
         if (spawnCount == 4 && SpawnCoolTime <= 0)
         {
+            for (int i = 2; i < 12; i += 3) EnemSpawn(3, i);
             for (int i = 1; i < 12; i += 6) EnemSpawn(2, i);
             spawnCount += 1;
             SpawnCoolTime = 8;
         }
         if (spawnCount == 5 && SpawnCoolTime <= 0)
         {
+            for (int i = 2; i < 12; i += 3) EnemSpawn(3, i);
             for (int i = 4; i < 12; i += 6) EnemSpawn(5, i);
             spawnCount += 1;
             SpawnCoolTime = 6;
@@ -715,12 +717,14 @@ public class BattleSystem : MonoBehaviour
         }
         if (spawnCount == 7 && SpawnCoolTime <= 0)
         {
+            for (int i = 2; i < 12; i += 3) EnemSpawn(3, i);
             for (int i = 2; i < 12; i += 6) EnemSpawn(4, i);
             spawnCount += 1;
             SpawnCoolTime = 10;
         }
         if (spawnCount == 8 && SpawnCoolTime <= 0)
         {
+            for (int i = 2; i < 12; i += 3) EnemSpawn(3, i);
             for (int i = 0; i < 12; i += 6) EnemSpawn(2, i);
             for (int i = 4; i < 12; i += 6) EnemSpawn(1, i);
             spawnCount += 1;
@@ -728,6 +732,7 @@ public class BattleSystem : MonoBehaviour
         }
         if (spawnCount == 9 && SpawnCoolTime <= 0)
         {
+            for (int i = 2; i < 12; i += 3) EnemSpawn(2, i);
             for (int i = 2; i < 12; i += 6) EnemSpawn(5, i);
             for (int i = 1; i < 12; i += 6) EnemSpawn(4, i);
             spawnCount += 1;
