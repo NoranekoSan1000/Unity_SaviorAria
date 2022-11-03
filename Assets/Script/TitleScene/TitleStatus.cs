@@ -19,6 +19,9 @@ public class TitleStatus : MonoBehaviour
     float Wait = 0;
     float Wait2 = 0;
 
+    //ランキング削除用
+    public static int RankingDelete = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +31,26 @@ public class TitleStatus : MonoBehaviour
         Wait = 0;
         Wait2 = 0;
         FadeController.isFadeIn = true;
+
+        RankingDelete = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (RankingDelete == 0 && Input.GetKey(KeyCode.D))
+        {
+            RankingDelete = 1;
+        }
+        if (RankingDelete == 1 && Input.GetKey(KeyCode.E))
+        {
+            RankingDelete = 2;
+        }
+        if (RankingDelete == 2 && Input.GetKey(KeyCode.L))
+        {
+            RankingDelete = 3;
+        }
+
         TitleAmmo = 999;
         if(GameStart)
         {
@@ -42,6 +60,7 @@ public class TitleStatus : MonoBehaviour
         }
         if (GameEnd)
         {
+
             Wait2 += Time.deltaTime;
             if (Wait2 >= 0.75f) FadeController.isFadeOut = true;
             if (Wait2 >= 3) Application.Quit();//終了
