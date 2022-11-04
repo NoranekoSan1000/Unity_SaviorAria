@@ -30,6 +30,8 @@ public class BattleSystem : MonoBehaviour
 
     Vector3 force;
 
+    int DebugSystem = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,21 @@ public class BattleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DebugSystem == 0 && Input.GetKeyDown(KeyCode.D))
+        {
+            DebugSystem = 1;
+        }
+        if (DebugSystem == 1 && Input.GetKeyDown(KeyCode.B))
+        {
+            DebugSystem = 2;
+        }
+        if (DebugSystem == 2 && Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log("Next");
+            GameChanger = true;
+            DebugSystem = 0;
+        }
+
         if (PlayerStatus.GamePhase > 8) RedSmoke.SetActive(true);
         SpawnCoolTime -= Time.deltaTime;
 

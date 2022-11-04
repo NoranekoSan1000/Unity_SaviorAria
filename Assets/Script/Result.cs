@@ -57,6 +57,7 @@ public class Result : MonoBehaviour
         }
         ScoreManager.PlayCount += 1;
 
+
         ScoreD[0] = PlayerStatus.Score / 100000;
         for (int i = 1; i < 6; i++)
         {
