@@ -6,6 +6,7 @@ using UnityEngine.UI;  // í«â¡ÇµÇ‹ÇµÇÂÇ§
 public class ScoreManager : MonoBehaviour
 {
     public Text[] score_text = new Text[9]; // TextÉIÉuÉWÉFÉNÉg
+    public Text[] score_text2 = new Text[9]; // TextÉIÉuÉWÉFÉNÉg
     public static int[] Ranking = new int[9];//éÊìæóp
     public int[] SaveRanking = new int[9];//ï€ë∂óp
 
@@ -13,6 +14,7 @@ public class ScoreManager : MonoBehaviour
     public string[] SaveName = new string[9];//ï€ë∂óp
 
     public Text PlayCountText;
+    public Text PlayCountText2;
     public static int PlayCount;
     public int SavePlayCount;
 
@@ -69,6 +71,17 @@ public class ScoreManager : MonoBehaviour
         score_text[6].text = "7th: " + SaveName[6] + "Åy" + SaveRanking[6] + "Åz";
         score_text[7].text = "8th: " + SaveName[7] + "Åy" + SaveRanking[7] + "Åz";
         score_text[8].text = "9th: " + SaveName[8] + "Åy" + SaveRanking[8] + "Åz";
+
+        PlayCountText2.text = "Gameplayed : " + SavePlayCount;
+        score_text2[0].text = "1st: " + SaveName[0] + "Åy" + SaveRanking[0] + "Åz";
+        score_text2[1].text = "2nd: " + SaveName[1] + "Åy" + SaveRanking[1] + "Åz";
+        score_text2[2].text = "3rd: " + SaveName[2] + "Åy" + SaveRanking[2] + "Åz";
+        score_text2[3].text = "4th: " + SaveName[3] + "Åy" + SaveRanking[3] + "Åz";
+        score_text2[4].text = "5th: " + SaveName[4] + "Åy" + SaveRanking[4] + "Åz";
+        score_text2[5].text = "6th: " + SaveName[5] + "Åy" + SaveRanking[5] + "Åz";
+        score_text2[6].text = "7th: " + SaveName[6] + "Åy" + SaveRanking[6] + "Åz";
+        score_text2[7].text = "8th: " + SaveName[7] + "Åy" + SaveRanking[7] + "Åz";
+        score_text2[8].text = "9th: " + SaveName[8] + "Åy" + SaveRanking[8] + "Åz";
 
     }
 

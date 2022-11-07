@@ -90,8 +90,8 @@ public class Result : MonoBehaviour
         if (ScoretextTime > 1.44f) ResultScoreText.text = "  Score  " + ScoreD[0] + "" + ScoreD[1] + "" + ScoreD[2] + "" + ScoreD[3] + "" + ScoreD[4];
         if (ScoretextTime > 1.56f) ResultScoreText.text = "  Score  " + ScoreD[0] + "" + ScoreD[1] + "" + ScoreD[2] + "" + ScoreD[3] + "" + ScoreD[4] + "" + ScoreD[5];
 
-        if (ScoretextTime > 4f) NextText.text = "-　トリガーを引いて終了　-";
-        if (ScoretextTime > 4.2f && (Input.GetKeyDown(KeyCode.A) || (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))))
+        if (ScoretextTime > 3f) NextText.text = "-　トリガーを引いて終了　-";
+        if (ScoretextTime > 3.2f && (Input.GetKeyDown(KeyCode.A) || (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))))
         {
             FadeController.isFadeOut = true;
             end = true;
@@ -102,9 +102,9 @@ public class Result : MonoBehaviour
     public void EndGame()
     {
         EndTime += Time.deltaTime;
-        if (EndTime > 3) EndText.text = "BGM\n\nM-ART";
-        if (EndTime > 6) EndText.text = "制作\n\nNoranekoFelician";
-        if (EndTime > 9) EndText.text = "";
-        if (EndTime > 10) SceneManager.LoadScene(0);
+        if (EndTime > 2.5f) EndText.text = "BGM\n\nM-ART";
+        if (EndTime > 5) EndText.text = "制作\n\nNoranekoFelician";
+        if (EndTime > 7.5f) EndText.text = "";
+        if (EndTime > 8) SceneManager.LoadScene(0);
     }
 }

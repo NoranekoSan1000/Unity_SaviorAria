@@ -56,7 +56,7 @@ public class TitleStatus : MonoBehaviour
         {
             Wait += Time.deltaTime;
             if (Wait >= 0.75f) FadeController.isFadeOut = true;
-            if (Wait >= 3) SceneManager.LoadScene("destroyed_city 1");
+            if (Wait >= 2.5f) SceneManager.LoadScene("destroyed_city 1");
         }
         if (GameEnd)
         {

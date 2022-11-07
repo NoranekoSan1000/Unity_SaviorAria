@@ -17,8 +17,10 @@ public class Zombie : MonoBehaviour
     public GameObject lookTarget;
     public GameObject Head;
     public GameObject Body;
+    public GameObject Blood;
 
     float PlayerDamageCT=3;
+    float EffectTime = 0;
     bool thisDie = false;
 
     float CenterCoolTime = 2;
@@ -100,9 +102,19 @@ public class Zombie : MonoBehaviour
     {
         if (dis <= 4.0f)
         {
-            PlayerDamageCT -= Time.deltaTime;            
-            if(PlayerDamageCT <= 0)
+            PlayerDamageCT -= Time.deltaTime;
+
+            if(EffectTime > 0)
             {
+                EffectTime -= Time.deltaTime;
+                Blood.SetActive(true);
+            }
+            else Blood.SetActive(false);
+
+
+            if (PlayerDamageCT <= 0)
+            {
+                EffectTime = 1;
                 SController.GetComponent<ShotController>().Damage();
                 PlayerStatus.PlayerHP -= ATK;
                 anim.SetBool("Attack", true);
