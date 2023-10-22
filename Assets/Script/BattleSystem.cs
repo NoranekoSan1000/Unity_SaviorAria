@@ -77,18 +77,17 @@ public class BattleSystem : MonoBehaviour
         if (PlayerStatus.GamePhase == 6) Phase7();
         if (PlayerStatus.GamePhase == 7) Phase9();
         if (PlayerStatus.GamePhase == 8) Phase10();
-        if (PlayerStatus.GamePhase == 9) Phase11();
-        if (PlayerStatus.GamePhase == 10) Phase12();
-        if (PlayerStatus.GamePhase == 11) Phase13();
-        if (PlayerStatus.GamePhase == 12) Phase15();
-        if (PlayerStatus.GamePhase == 13) FinalPhase();
+        if (PlayerStatus.GamePhase == 9) Phase12();
+        if (PlayerStatus.GamePhase == 10) Phase13();
+        if (PlayerStatus.GamePhase == 11) Phase15();
+        if (PlayerStatus.GamePhase == 12) FinalPhase();
     
 
         if (GameChanger)
         {
             PlayerStatus.Score += PlayerStatus.GamePhase * 100;
             PlayerStatus.GamePhase += 1;
-            if (PlayerStatus.GamePhase == 15)
+            if (PlayerStatus.GamePhase == 14)
             {
                 FadeController.isFadeOut=true;
                 SpawnCoolTime = 4;
@@ -96,7 +95,7 @@ public class BattleSystem : MonoBehaviour
             }
             else
             {               
-                if (PlayerStatus.GamePhase == 5 || PlayerStatus.GamePhase == 9 || PlayerStatus.GamePhase == 13)
+                if (PlayerStatus.GamePhase == 4 || PlayerStatus.GamePhase == 7 || PlayerStatus.GamePhase == 10)
                 {
                     //BGM切り替わりタイミング
                     PhaseBGM += 1;
