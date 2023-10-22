@@ -42,7 +42,7 @@ public class PlayerStatus : MonoBehaviour
         Score = 0;
         Ammo = 44;
         LAmmo = 19;
-        PlayerHP = 20;
+        PlayerHP = 10;
         Reloading = false;
         ReloadTime = 0;
         LReloading = false;

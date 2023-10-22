@@ -71,26 +71,24 @@ public class BattleSystem : MonoBehaviour
 
         if (PlayerStatus.GamePhase == 1) Phase1();
         if (PlayerStatus.GamePhase == 2) Phase2();
-        if (PlayerStatus.GamePhase == 3) Phase3();
-        if (PlayerStatus.GamePhase == 4) Phase4();
-        if (PlayerStatus.GamePhase == 5) Phase5();
-        if (PlayerStatus.GamePhase == 6) Phase6();
-        if (PlayerStatus.GamePhase == 7) Phase7();
-        if (PlayerStatus.GamePhase == 8) Phase8();
-        if (PlayerStatus.GamePhase == 9) Phase9();
-        if (PlayerStatus.GamePhase == 10) Phase10();
-        if (PlayerStatus.GamePhase == 11) Phase11();
-        if (PlayerStatus.GamePhase == 12) Phase12();
-        if (PlayerStatus.GamePhase == 13) Phase13();
-        if (PlayerStatus.GamePhase == 14) Phase14();
-        if (PlayerStatus.GamePhase == 15) Phase15();
-        if (PlayerStatus.GamePhase == 16) FinalPhase();
+        if (PlayerStatus.GamePhase == 3) Phase4();
+        if (PlayerStatus.GamePhase == 4) Phase5();
+        if (PlayerStatus.GamePhase == 5) Phase6();
+        if (PlayerStatus.GamePhase == 6) Phase7();
+        if (PlayerStatus.GamePhase == 7) Phase9();
+        if (PlayerStatus.GamePhase == 8) Phase10();
+        if (PlayerStatus.GamePhase == 9) Phase11();
+        if (PlayerStatus.GamePhase == 10) Phase12();
+        if (PlayerStatus.GamePhase == 11) Phase13();
+        if (PlayerStatus.GamePhase == 12) Phase15();
+        if (PlayerStatus.GamePhase == 13) FinalPhase();
+    
 
         if (GameChanger)
         {
             PlayerStatus.Score += PlayerStatus.GamePhase * 100;
             PlayerStatus.GamePhase += 1;
-            if (PlayerStatus.GamePhase == 17)
+            if (PlayerStatus.GamePhase == 15)
             {
                 FadeController.isFadeOut=true;
                 SpawnCoolTime = 4;
