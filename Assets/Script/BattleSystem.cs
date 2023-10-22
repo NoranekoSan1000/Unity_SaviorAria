@@ -87,7 +87,7 @@ public class BattleSystem : MonoBehaviour
         {
             PlayerStatus.Score += PlayerStatus.GamePhase * 100;
             PlayerStatus.GamePhase += 1;
-            if (PlayerStatus.GamePhase == 14)
+            if (PlayerStatus.GamePhase == 13)
             {
                 FadeController.isFadeOut=true;
                 SpawnCoolTime = 4;
@@ -110,7 +110,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         if (PlayerStatus.PlayerHP <= 0) deathCT += Time.deltaTime;
-        if ((PlayerStatus.GamePhase == 17 && SpawnCoolTime <= 0) || deathCT > 4) SceneManager.LoadScene("Result");
+        if ((PlayerStatus.GamePhase == 13 && SpawnCoolTime <= 0) || deathCT > 4) SceneManager.LoadScene("Result");
     }
 
     void Phase1()
