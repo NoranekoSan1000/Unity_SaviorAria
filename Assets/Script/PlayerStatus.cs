@@ -55,6 +55,10 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //test—p
+        if (Input.GetKeyDown(KeyCode.P)) GamePhase++;
+
        // string st = GameTime.ToString("0.0");
         //LeftTimeText.text = st;
 
