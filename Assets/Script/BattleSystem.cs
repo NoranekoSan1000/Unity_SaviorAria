@@ -66,7 +66,7 @@ public class BattleSystem : MonoBehaviour
             DebugSystem = 0;
         }
 
-        if (PlayerStatus.GamePhase > 8) RedSmoke.SetActive(true);
+        if (PlayerStatus.GamePhase >= 7) RedSmoke.SetActive(true);
         SpawnCoolTime -= Time.deltaTime;
 
         if (PlayerStatus.GamePhase == 1) Phase1();
