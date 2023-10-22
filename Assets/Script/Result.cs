@@ -27,7 +27,7 @@ public class Result : MonoBehaviour
         FadeController.isFadeIn = true;
         //BGM
         audios = GetComponent<AudioSource>();      
-        if (PlayerStatus.GamePhase >= 17) audios.clip = BGM[1];//clear
+        if (PlayerStatus.GamePhase >= 13) audios.clip = BGM[1];//clear
         else audios.clip = BGM[0];//gameover
         audios.Play();
 
@@ -69,7 +69,7 @@ public class Result : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerStatus.GamePhase >= 17)
+        if (PlayerStatus.GamePhase >= 13)
         {
             GameOverorClear.text = "GameClear";//clear
             RedPanel.SetActive(false);
