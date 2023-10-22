@@ -117,7 +117,7 @@ public class PlayerStatus : MonoBehaviour
     {
         if (textTime < 5f) textTime += Time.deltaTime;
 
-        if(GamePhase != 16)
+        if(GamePhase != 12)
         {
             
             if (textTime > 0.08f) PhaseText.text = "-";
